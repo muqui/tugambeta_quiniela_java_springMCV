@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+  
+    <definition name="defaultTemplate" template="/WEB-INF/template/default/template.jsp">
+        <put-attribute name="header" value="/WEB-INF/template/default/header.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/template/default/menu.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/template/default/footer.jsp" />
+    </definition>
+    <definition name="indexTemplate" template="/WEB-INF/template/default/indextemplate.jsp">
+        <put-attribute name="header" value="/WEB-INF/template/default/indexheader.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/template/default/menu.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/template/default/footer.jsp" />
+    </definition>
+    <definition name="indexadmingrupotemplate" template="/WEB-INF/template/default/indexadmingrupotemplate.jsp">
+        <put-attribute name="header" value="/WEB-INF/template/default/header_indexadmingrupo.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/template/default/menu.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/template/default/footer.jsp" />
+    </definition>
+    
+    
+     <definition name="templateadminadministrar" template="/WEB-INF/template/default/template_admin_administrar.jsp">
+        <put-attribute name="header" value="/WEB-INF/template/default/header_admin_administrar.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/template/default/menu.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/template/default/footer.jsp" />
+    </definition>
+    
+    <definition name="templateadmin" template="/WEB-INF/template/default/template_admin.jsp">
+        <put-attribute name="header" value="/WEB-INF/template/default/header_admin.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/template/default/menu.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/template/default/footer.jsp" />
+    </definition>
+    
+    <definition name="templateadmingrupo" template="/WEB-INF/template/default/template_admin_grupo.jsp">
+        <put-attribute name="header" value="/WEB-INF/template/default/header_admin_grupo.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/template/default/menu.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/template/default/footer.jsp" />
+    </definition>
+    
+     <definition name="errorTemplate" template="/WEB-INF/template/default/errortemplate.jsp">
+       
+        <put-attribute name="menu" value="/WEB-INF/template/default/menu.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/template/default/footer.jsp" />
+    </definition>
+    
+    
+    <definition name="estadistica" template="/WEB-INF/template/default/estadistica.jsp">
+        <put-attribute name="encabezado" value="/WEB-INF/template/default/estadisticaEncabezado.jsp" />
+        <put-attribute name="derecho" value="/WEB-INF/template/default/estadisticaAside.jsp" />
+         <put-attribute name="izquierdo" value="/WEB-INF/template/default/estadisticaMenu.jsp" />
+        <put-attribute name="pie" value="/WEB-INF/template/default/estadisticaPie.jsp" />
+        
+    </definition>
+</tiles-definitions>

@@ -1,0 +1,231 @@
+#estadisticaFormulariobody {
+    position: relative;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+header {
+    width: 100%;
+    background: white;
+}
+#header-responsive {
+    display: none;
+    
+}
+
+#header-normal {
+    text-align: center;
+}
+
+#btn-menu {
+    display: none;
+}
+#pagewrap {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+#sidebar {
+    width: 15%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.menu {
+    margin-right: 100px;
+    width: 20%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.menuestadistica{
+    width: 20%;
+    display: inline-block;
+    vertical-align: top;
+}
+.menuestadistica ul{
+
+    margin:0 ;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+
+}
+.menuestadistica li{  
+    border-right: 1px solid #fff;
+    border-top: 1px solid gray;
+}
+.menuestadistica li:hover{
+   /* background:  rgba(0,0,0,0.3); */
+   background: #8e468d;
+}
+.menuestadistica li a{
+    display: block;
+    padding: 15px 20px;
+    color: green;
+    text-decoration: none;
+}
+
+#accordion ul{
+    margin: 0 ;
+    list-style: none;
+    padding: 0;
+    display: flex;
+
+
+}
+#accordion li{  
+    border-right: 1px solid #fff;
+}
+#accordion li:hover{
+    background: rgba(0,0,0,0.3); 
+}
+#accordion li a{
+    display: block;
+    padding: 15px 20px;
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.pie {
+      margin-top: 100px;
+     
+    background-color: #8e468d;
+    clear:both;
+    position:absolute;
+    bottom:0;
+    left:0;
+    color: white;
+    font-size: 90%;
+    font-weight: bold;
+    text-align:center;
+    width:100%;
+    height:20px;
+}
+
+/* 
+Autocompletar
+*/
+.autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
+.autocomplete-suggestion { padding: 5px 5px; white-space: nowrap; overflow: hidden; font-size:22px}
+.autocomplete-selected { background: #F0F0F0; }
+.autocomplete-suggestions strong { font-weight: bold; color: #8e468d; }
+
+/*
+ Formulario estadistica
+*/
+#estadisticaFormulario{
+    padding-bottom: 10px;
+    padding-top: 10px;
+    width: 100%;
+
+    /* background: url(../images/fondo.png) ;*/
+    margin: 0 0 0 0;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border-radius: 15px 15px 15px 15px;
+    border-color: #8e468d;
+    border-width: 1px;
+    border-style: solid;
+}
+
+
+/*
+tabla estadisticas
+*/
+#tablaraizcuadrada{
+    width: 100%;
+}
+
+/*
+titulo estadistcas
+*/
+#estadisticaTitulo{
+    color: gray;
+    text-align: center;
+}
+.estadisticaH2{
+    font-size: 18px;
+    color: gray;
+    text-align: center;
+} 
+
+/*
+Graficas
+*/
+.piechart{
+ 
+    width: 100%;
+
+}
+
+/*
+
+    ##################################################################################
+    #                                                                                #   
+    #                     Telefono en Horizontal                                       #   
+    #                                                                                #
+    ##################################################################################
+*/  
+@media (max-width: 768px){
+
+
+    .imageversus{
+        display: block;
+
+    }
+    #estadisticaFormulario h1, #estadisticasTitulo{    
+        font-size: 18px;   
+    }
+    #estadisticaFormulario h1 small{
+        font-size: 12px; 
+    }
+    header {
+        width: 100%;
+        background: black;
+    }
+    #header-normal {
+        display: none;
+    }
+    #header-responsive {
+        background: white;
+          text-align: center;
+        display: block;
+    }
+    #sidebar {
+        width: 100%;
+        display: block;
+    }
+    .content {
+        width: 100%;
+        display: block;
+    }
+    header label {
+        display: block;
+    }
+    .menuestadistica  {
+        position: absolute;
+        background: #8e468d;
+        width: 70%;
+        margin-left: -88%;
+
+    } 
+    .menuestadistica li{  
+   
+    border-top:  1px solid #fff;
+}
+
+.menuestadistica li a{
+   
+    color: white;
+    
+}
+    #btn-menu:checked ~ .menuestadistica{
+        margin: 0;	
+    }
+}
+
+

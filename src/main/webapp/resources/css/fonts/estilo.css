@@ -1,0 +1,502 @@
+body{
+    margin: 0;
+    font-family:  sans-serif;
+}
+/* 
+estilo estadistcas
+*/
+.formstatics{
+ width: 100%;
+  background: url(../imagesx/fondo.png) ;
+
+    background-repeat: no-repeat;
+   background-size: 100% auto;
+  height: 250px;
+}
+
+h1{
+     color: white;
+      font-size: 55px;
+     margin: 0 0 0 0;
+     text-align: center;
+}
+h1 table{
+    width: 100%;
+   
+}
+h1 small{
+    float: none;
+ 
+  margin-top: -20px;
+   font-size: 20px;
+      width: 100%;
+}
+
+.inn {
+           
+          
+           margin-top: 20px;
+            text-align: center;
+        }
+
+.heighttext{
+height:30px;
+-moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        border: 1px solid #000000;
+        padding: 0 4px 0 4px;
+}
+ .piechart{
+        width: 400px;
+        height: 200px;
+    }
+/*
+ FIN estilo estadisticas
+*/
+
+
+header{
+    width: 100%;  
+    background: #488F06
+}
+#btn-menu{
+    display: none;
+}
+header label{ 
+    display: none;
+    width:  30px;
+    height: 30px;
+    padding: 10px;
+    border-right:  1px solid #fff;
+}
+header label:hover{
+    cursor: pointer;
+    background: rbg(0,0,0,0.3);
+}
+.menu ul{
+    margin: 0 ;
+    list-style: none;
+    padding: 0;
+    display: flex;
+
+
+}
+.menu li{  
+    border-right: 1px solid #fff;
+}
+.menu li:hover{
+    background:  rgba(0,0,0,0.3); 
+}
+.menu li a{
+    display: block;
+    padding: 15px 20px;
+    color: #fff;
+    text-decoration: none;
+}
+
+#jugar{
+    width:40%; 
+    margin-left:30%; 
+    margin-right:30%;
+}
+#jugar table{
+    width: 100%;
+}
+#participantes{
+    width: 100%;
+}
+#jugar tbody td input[type="text"]{
+
+    margin: 0px 3% 0px 3%;	
+    width: 94%;
+}
+#jugar  input[type="text"]{
+    margin: 10px 32% 10px 32%;	
+    width: 36%;
+
+}
+#formcrear{
+    width:90%; 
+    margin-left:5%; 
+    margin-right:5%;
+}
+#formcrear table{
+    width: 100%; 
+    margin-left: 0px;
+    margin-right: 0px;
+    
+}
+ #campos1 {
+   
+    display: inline-block;
+}
+#campos1 div{
+    
+     display: inline-block;
+     
+}
+#formcrear tbody td input[type="text"]{
+
+    margin: 4px 3% 4px 3%;	
+    width: 90%;
+}
+.error{
+    font-size: 18px;
+
+    color: red;
+
+    width: 100%;
+}
+#visita{
+    text-align: right;
+}
+#empate{
+    text-align: center;
+}
+tr:nth-of-type(odd){
+    background: #DFF0E1;
+}
+tr:nth-of-type(even){
+    background: white;
+}
+.actualizarQ{
+     width: 100%;
+}
+#actualizarSQ{
+    width:40%; 
+    margin-left: 28%;
+    margin-right: 28%;
+}
+.actualizarQ{
+     display: block;
+}
+.actualizarQ div{
+     display: block;
+    width: 70%;
+   
+}
+.actualizarQ div input[type="text"] , input[type="datetime-local"],  input[type="password"] {
+     
+    
+    margin: 0px 2% 10px 2%;
+    width: 95%;
+    height: 25px;
+     
+}
+
+@media (max-width: 768px){ 
+    /*
+      estilo estadisticas
+    */
+       #piechart{
+        width: 100%;
+    }
+            .formstatics{
+ 
+  height: 300px;
+}
+
+
+          h1{
+           
+            font-size: 20px;
+          }
+          h1 small{
+   
+   font-size: 12px;
+    
+}
+  .imageversus{
+    display: block;
+
+}
+    /*
+    FIN estilo estadisticas
+    */
+
+    header label{
+        display: block;
+
+    }
+
+    .menu  {
+        position: absolute;
+        background:  #488F06;
+        width: 70%;
+        margin-left: -70%;
+    } 
+    .menu ul{
+        flex-direction: column;
+    }
+    .menu li{
+        border-top: 1px solid #fff;
+    }
+
+    #btn-menu:checked ~ .menu{
+        margin: 0;
+    }
+    /* TABLA JUGAR
+---------------------------------------------------------------------------------*/
+    #jugar{		
+        width: 100%;	
+        margin-left:0%; 
+        margin-right:0%;
+        margin-bottom: 1px;
+        margin-top: 1px;
+    }
+   
+    #tableJugar{
+        border: 0px;
+        margin-left:0%; 
+        margin-right:0%;
+        margin-bottom: 1px;
+        margin-top: 1px;
+    }
+
+    /*-------------------------------------------------------------------------------*/
+    #jugar input[type="submit"]  {
+
+        margin: 2px 25% 2px 25%;	
+        width: 50%;
+    }
+    #jugar  input[type="text"]{
+        margin-left: 5%;
+        margin-right: 5%;
+        width: 90%;
+
+    }
+    #error{
+
+
+        margin-left: 5%;
+        margin-right: 5%;
+        width: 90%;
+
+    }
+    /*
+    tabla crear quiniela
+    */
+    #crearquiniela{
+        width: 100%;
+    }
+
+    #crearquiniela thead {
+        display: none;
+    }
+    #crearquiniela tbody tr {
+        margin: 0px 0px 9px 0px;
+    }
+    #crearquiniela tr:nth-of-type(2n) {
+        background-color: inherit;
+    }
+    
+    
+    
+  #crearquiniela  tr:nth-of-type(odd){
+    background: #488F06;
+}
+#crearquiniela tr:nth-of-type(even){
+    background: white;
+}
+    
+    
+    
+    #crearquiniela tbody td {
+       
+        display: block;  text-align:center;
+    }
+    #crearquiniela tbody td input[type="text"]{  
+        margin: 10px 5px 5px 5px;
+      width: 90%;
+    }
+    #crearquiniela tbody td:before { 
+        content: attr(data-th); 
+        display: block;
+        text-align:center;  
+    }
+     #campos1 {
+   
+    display: block;
+}
+#campos1 div{
+   
+     display: block;
+     
+}
+#campos1 div input[type="text"] , input[type="datetime-local"] {
+    margin: 0px 0px 10px 0px;
+    width: 100%;
+     
+}
+#botones div{
+    margin-top: 10px;
+    height: 40px;
+}
+ #botones div input[type="submit"]  {
+
+        margin: 2px 25% 2px 25%;	
+        width: 50%;
+    }
+     #actualizarSQ{
+        width: 100%;	
+        margin-left:0%; 
+        margin-right:0%;
+        margin-bottom: 1px;
+        margin-top: 1px;
+    }
+    .actualizarQ div{
+        width: 100%;
+    display: block;
+}
+    .actualizarQ div input[type="text"] , input[type="datetime-local"],  input[type="password"] {
+    margin: 0px 2% 10px 2%;
+    width: 95%;
+    height: 30px;
+     
+}
+.actualizarQ div input[type="submit"]  {
+
+        margin: 2px 25% 2px 25%;	
+        width: 50%;
+    }
+.actualizarQ  label  {
+margin: 0px 2% 10px 2%;
+font-family: "Trebuchet MS", Verdana, Halvetica, Arial;
+    font-size: 20px;
+    width: 95%;
+    height: 25px;
+       
+    }
+    #registrase{
+        width: 100%;
+    }
+    .imagen{
+    align-content: center;
+    margin-left: 4%;
+    margin-right: 4%;
+    width: 90%;
+   
+
+}
+}
+/* Móviles en vertical
+   ------------------------------------------------------------------------- */
+@media (max-width: 480px) { 
+
+
+}
+/* camboa la imagen del radio boton le coloca una imagen */
+input[type="radio"]{ 
+    display: none;
+}
+label{
+    font-family: "Trebuchet MS", Verdana, Halvetica, Arial;
+    font-size: 12px;
+    color: #040507;
+}
+input[type="radio"] + label span{
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: url(../images/checkbox.png) left top no-repeat;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    cursor:pointer;
+}
+
+
+input[type="radio"]:checked + label span{
+    background: url(../images/checkbox.png) -32px top no-repeat;
+}
+/* FIN camboa la imagen del radio boton le coloca una imagen */
+
+
+.myButton {
+    -moz-box-shadow: 0px 10px 14px -7px #120812;
+    -webkit-box-shadow: 0px 10px 14px -7px #120812;
+    box-shadow: 0px 10px 14px -7px #0A4B09;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #488F06), color-stop(1, #7a247a));
+    background:-moz-linear-gradient(top, #488F06 5%, #356904 100%);
+    background:-webkit-linear-gradient(top, #488F06 5%, #356904 100%);
+    background:-o-linear-gradient(top, #488F06 5%, #356904 100%);
+    background:-ms-linear-gradient(top, #488F06 5%, #356904 100%);
+    background:linear-gradient(to bottom, #488F06 5%, #356904 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#488F06', endColorstr='#356904',GradientType=0);
+    background-color:#488F06;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;
+    border-radius:8px;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:12px;
+    font-weight:bold;
+    padding:10px 32px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #7a0c7a;
+}
+.myButton:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7a247a), color-stop(1, #488F06));
+    background:-moz-linear-gradient(top, #356904 5%, #488F06 100%);
+    background:-webkit-linear-gradient(top, #356904 5%, #488F06 100%);
+    background:-o-linear-gradient(top, #356904 5%, #488F06 100%);
+    background:-ms-linear-gradient(top, #356904 5%, #488F06 100%);
+    background:linear-gradient(to bottom, #356904 5%, #488F06 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#356904', endColorstr='#488F06',GradientType=0);
+    background-color:#7a247a;
+}
+.myButton:active {
+    position:relative;
+    top:1px;
+}
+#resultado{ 
+    border-style: groove;
+    border-color: graytext;
+    display: inline-block;
+    width: 105px;
+
+
+}
+
+#matemex{
+    align-content: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    height: 100px;
+
+}
+#patrocinador{
+    text-align: center;
+}
+
+/*---FOOTER---*/
+#footer {
+    background: none repeat scroll 0 0 #488F06;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    clear: both;
+    color: white;
+    font-size: 90%;
+    font-weight: bold;
+    text-align: center;
+}
+
+#footer a {
+   
+    color: white;
+}
+
+.glyphs {
+  list-style-type: none;
+}
+
+.glyphs li:before,
+.glyphs b {
+  display: inline-block;
+  width: 1.5em;
+  font-size: 1.5em;
+  text-align: center;
+}

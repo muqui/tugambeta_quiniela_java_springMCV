@@ -1,0 +1,443 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 12/07/2017, 01:19:08 PM
+    Author     : mq12
+*/
+
+body{
+    margin: 0;
+    font-family:  sans-serif;
+}
+header{
+    width: 100%;  
+    background: #7C9089;
+
+}
+.logomenu{
+    display: inline-block;
+
+    padding-left: 50px;
+
+    padding-right: 200px;
+    padding-top: 10px;
+}
+.logoheader{
+    display: none;
+}
+#btn-menu{
+    display: none;
+}
+#resultado{ 
+    border-style: groove;
+    border-color: graytext;
+    display: inline-block;
+    width: 96px;
+
+
+}
+header label{ 
+    display: none;
+    width:  30px;
+    height: 37px;
+    padding: 10px;
+    border-right:  1px solid #fff;
+}
+header label:hover{
+    cursor: pointer;
+    background: rbg(0,0,0,0.3);
+}
+.menu{
+    /*
+    position: fixed; 
+    top: 0;
+    */
+    background: #7C9089;
+    width: 100%;
+}
+
+.menu ul{
+    margin: 0 ;
+    list-style: none;
+    padding: 0;
+    display: flex;
+
+
+}
+
+.menu li:hover{
+    background:  rgba(0,0,0,0.3); 
+}
+.menu li a{
+    display: block;
+    padding: 25px 20px;
+    color: #8D14A5;
+    font-size: 20px;
+    text-decoration: none;
+}
+#indexLeft{
+    background: gray;
+    vertical-align: top;
+    width: 23%;
+    text-align: center;
+    display: inline-block;
+}
+#indexCenter{
+
+    width: 50%;
+    display: inline-block;
+
+}
+#indexRight{
+    width: 24%;
+
+    vertical-align: top;
+    text-align: center;
+    display: inline-block;
+}
+
+/* camboa la imagen del radio boton le coloca una imagen */
+input[type="radio"] , input[type="checkbox"] { 
+    display: none;
+}
+label{
+    font-family: "Trebuchet MS", Verdana, Halvetica, Arial;
+    font-size: 12px;
+    color: #040507;
+}
+input[type="radio"] + label span , input[type="checkbox"] + label span{
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: url(../images/checkbox.png) left top no-repeat;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    cursor:pointer;
+}
+
+
+input[type="radio"]:checked + label span ,  input[type="checkbox"]:checked + label span{
+    background: url(../images/checkbox.png) -32px top no-repeat;
+}
+/* FIN camboa la imagen del radio boton le coloca una imagen */
+#indexCenter h2, #registerform  {
+      text-align: center;
+}
+ td{
+    text-align: left;
+}
+#registerform #tableJugar{
+    width: 100%; 
+    
+        
+}
+.table{
+   width:  100%;
+}
+#visita{
+    text-align: right;
+}
+#empate{
+    text-align: center;
+}
+.myButton {
+    -moz-box-shadow: 0px 10px 14px -7px #d4b745;
+    -webkit-box-shadow: 0px 10px 14px -7px #d4b745;
+    box-shadow: 0px 10px 14px -7px #d4b745;
+    background-color:#dbb932;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;
+    border-radius:8px;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:13px 32px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #d4b745;
+}
+.myButton:hover {
+    background-color:#bd9d1e;
+}
+.myButton:active {
+    position:relative;
+    top:1px;
+}
+/*---FOOTER---*/
+#footer {
+    background: none repeat scroll 0 0 #7C9089;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    clear: both;
+    color: whitesmoke;
+    font-size: 90%;
+    font-weight: bold;
+    text-align: center;
+}
+p {
+    text-align: justify;
+}
+.indexImagen{
+    width: 100%;
+}
+.login {
+    background: #8e468d;
+
+    border-radius: 36px 36px 36px 36px;
+    -moz-border-radius: 36px 36px 36px 36px;
+    -webkit-border-radius: 36px 36px 36px 36px;
+    border: 0px solid #000000;
+    -webkit-box-shadow: 10px 10px 38px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 10px 10px 38px 0px rgba(0,0,0,0.5);
+    box-shadow: 10px 10px 38px 0px rgba(0,0,0,0.5);
+
+    margin:0 auto;
+    margin-top: 1px;
+    max-width:500px;
+}
+.login-header {
+    color:#fff;
+    text-align:center;
+    font-size:200%;
+}
+/* .login-header h1 {
+   text-shadow: 0px 5px 15px #000; */
+
+
+.login-form h3 {
+    text-align:left;
+    margin-left:40px;
+    color:#fff;
+}
+.login-form {
+    box-sizing:border-box;
+    padding-top:15px;
+    padding-bottom:10%;
+    margin:5% auto;
+    text-align:center;
+}
+.login input[type="text"],
+.login select,
+.login input[type="password"] {
+    max-width:400px;
+    width: 80%;
+    line-height:3em;
+    font-family: 'Ubuntu', sans-serif;
+    margin:1em 2em;
+    border-radius:5px;
+    border:2px solid #f2f2f2;
+    outline:none;
+    padding-left:10px;
+}
+.login-form input[type="submit"] {
+    height:30px;
+    width:100px;
+    background:#fff;
+    border:1px solid #f2f2f2;
+    border-radius:20px;
+    color: slategrey;
+    text-transform:uppercase;
+    font-family: 'Ubuntu', sans-serif;
+    cursor:pointer;
+}
+.sign-up{
+    color:#f2f2f2;
+    margin-left:-70%;
+    font-size: 20px;
+    cursor:pointer;
+    text-decoration:underline;
+}
+.no-access a{
+    color:#E86850;
+    margin-left:-55%;
+   margin-top: 50%;
+    font-size: 15px;
+    text-decoration:underline;
+    cursor:pointer;
+}
+.link_mx{   
+    margin:0 auto;
+    max-width:500px;
+    text-align:center;
+}
+.link_mx a{   
+      margin:10px 0;
+}
+  #estadistica{
+    width: 60%;
+    margin-left: 19%;
+    margin-right: 19%;
+}
+#estadisticaFormulario{
+   
+    width: 100%;
+
+    /* background: url(../images/fondo.png) ;*/
+    margin: 0 0 0 0;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border-radius: 15px 15px 15px 15px;
+    border-color: #8e468d;
+    border-width: 1px;
+    border-style: solid;
+}
+
+#estadisticaFormulario h1, #estadisticasTitulo{
+    color: #8e468d;
+    font-size: 30px;
+    margin: 0 0 0 0;
+    text-align: center;
+}
+#estadisticaFormulario h1 table{
+    width: 100%;
+
+}
+#estadisticaFormulario h1 small{
+    float: none;
+
+    margin-top: -20px;
+    font-size: 15px;
+    width: 100%;
+}
+.camposformularioestadistica {
+    margin-top: 20px;
+    text-align: center;
+}
+.estadisticaText{
+    height:30px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border: 1px solid #000000;
+    padding: 0 4px 0 4px;
+}  
+.error {
+color: #D8000C;
+font-size: 20px;
+}
+
+/* 
+Autocompletar buscada de equipos por nombre
+*/
+.autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
+.autocomplete-suggestion { padding: 5px 5px; white-space: nowrap; overflow: hidden; font-size:22px}
+.autocomplete-selected { background: #F0F0F0; }
+.autocomplete-suggestions strong { font-weight: bold; color: #8e468d; }
+@media (max-width: 768px){ 
+    #estadistica{
+    width: 99%;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+    .logoheader{
+        display: block;
+        margin-top: -53px;
+        padding-left:  60px;
+    }	
+    .logomenu{
+
+        display: none;
+    }
+    header{
+        width: 100%;
+        display: inline-block;
+      /*  position: fixed; */
+        top: 0;
+    }
+
+
+    header label{ 
+        display: block;
+
+    }
+    .menu ul.active {
+        width: 100%;
+        display:none;
+    }
+
+    .menu  {
+
+        position: absolute;
+        background: #7C9089;;
+        width: 70%;
+
+        top: 54px;
+
+    } 
+
+    .menu ul{
+        flex-direction: column;
+    }
+    .menu li{
+        border-top: 1px solid #fff;
+    }
+
+    .menu li a{
+        padding: 15px 20px;
+    }
+    #indexCenter{
+        margin-top: 60px;
+    }
+    #indexCenter, #indexRight, #indexLeft{
+        margin-left: 0px;
+        width: 99%;
+        display: block;
+    }
+    #estadistica{
+        width: 100%;
+    }
+     .login{
+        width: 95%;
+       
+    }
+      .error {
+font-size: 14px;
+}
+ .login-header {
+        color:#fff;
+        text-align:center;
+        font-size:100%;
+    }
+    .login-form h3 {
+        text-align:center;
+        margin:0;
+    }
+    .sign-up, .no-access a{
+        margin:10px 0;
+        font-size: 20px;
+       
+    }
+     /*
+      estilo estadisticas
+    */
+    #piechart{
+        width: 100%;
+    }
+    .formstatics{
+
+        height: 300px;
+    }
+
+
+    h1{
+
+        font-size: 20px;
+    }
+    h1 small{
+
+        font-size: 12px;
+
+    }
+    .imageversus{
+        display: block;
+
+    }
+    /*
+    FIN estilo estadisticas
+    */
+}

@@ -1,0 +1,161 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 8/04/2017, 03:01:21 PM
+    Author     : mq12
+ background: #2c3338;
+*/
+
+body {
+    
+    background: #fff;
+    margin:0px;
+    font-family: 'Ubuntu', sans-serif;
+    background-size: 100% 110%;
+}
+h1, h2, h3, h4, h5, h6, a {
+    margin:0; padding:0;
+}
+.logo_tugambeta{   
+    margin:0 auto;
+    margin-top: 20px;
+    max-width:800px;
+    text-align:center;
+}
+
+
+.link_mx{   
+    margin:0 auto;
+    max-width:500px;
+    text-align:center;
+}
+.link_mx a{   
+      margin:10px 0;
+}
+.login {
+    background: #8e468d;
+
+    border-radius: 36px 36px 36px 36px;
+    -moz-border-radius: 36px 36px 36px 36px;
+    -webkit-border-radius: 36px 36px 36px 36px;
+    border: 0px solid #000000;
+    -webkit-box-shadow: 10px 10px 38px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 10px 10px 38px 0px rgba(0,0,0,0.5);
+    box-shadow: 10px 10px 38px 0px rgba(0,0,0,0.5);
+
+    margin:0 auto;
+    margin-top: 1px;
+    max-width:500px;
+}
+.login-header {
+    color:#fff;
+    text-align:center;
+    font-size:200%;
+}
+/* .login-header h1 {
+   text-shadow: 0px 5px 15px #000; */
+
+
+.login-form h3 {
+    text-align:left;
+    margin-left:40px;
+    color:#fff;
+}
+.login-form {
+    box-sizing:border-box;
+    padding-top:15px;
+    padding-bottom:10%;
+    margin:5% auto;
+    text-align:center;
+}
+.login input[type="text"],
+.login select,
+.login input[type="password"] {
+    max-width:400px;
+    width: 80%;
+    line-height:3em;
+    font-family: 'Ubuntu', sans-serif;
+    margin:1em 2em;
+    border-radius:5px;
+    border:2px solid #f2f2f2;
+    outline:none;
+    padding-left:10px;
+}
+.login-form input[type="submit"] {
+    height:30px;
+    width:100px;
+    background:#fff;
+    border:1px solid #f2f2f2;
+    border-radius:20px;
+    color: slategrey;
+    text-transform:uppercase;
+    font-family: 'Ubuntu', sans-serif;
+    cursor:pointer;
+}
+.sign-up{
+    color:#f2f2f2;
+    margin-left:-70%;
+    font-size: 20px;
+    cursor:pointer;
+    text-decoration:underline;
+}
+.no-access a{
+    color:#E86850;
+    margin-left:-55%;
+   margin-top: 50%;
+    font-size: 15px;
+    text-decoration:underline;
+    cursor:pointer;
+}
+.try-again {
+    color:#f2f2f2;
+    text-decoration:underline;
+    cursor:pointer;
+}
+.error {
+color: #D8000C;
+font-size: 20px;
+}
+
+/*Media Querie*/
+@media only screen and (min-width : 150px) and (max-width : 530px){
+    .error {
+color: #D8000C;
+font-size: 14px;
+}
+    body {
+        background: white;
+    }
+    .login{
+        width: 95%;
+       
+    }
+    .logo_tugambeta{
+        width: 95%;
+    }
+    .logo_tugambeta a img{
+        width: 90%;
+        height: 50px;
+    }
+        
+    .login-header {
+        color:#fff;
+        text-align:center;
+        font-size:100%;
+    }
+    .login-form h3 {
+        text-align:center;
+        margin:0;
+    }
+    .sign-up, .no-access a{
+        margin:10px 0;
+        font-size: 20px;
+       
+    }
+    .login-button {
+        margin-bottom:10px;
+    }
+}
