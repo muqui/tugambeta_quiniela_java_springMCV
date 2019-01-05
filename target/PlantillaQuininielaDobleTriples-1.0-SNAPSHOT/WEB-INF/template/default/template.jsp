@@ -3,15 +3,13 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <!doctype html>
-<html  class="uk-light uk-section-primary ">
+<html  >
      <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-        <link href="<c:url value="/resources/css/uikit.css" />" rel="stylesheet">
-        <link href="<c:url value="/resources/fonts/djgross.css" />" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/js/uikit.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/js/uikit-icons.min.js"></script>
-        <link rel="shortcut icon" href='<c:url value="/resources/images/t.png" />' type="image/x-icon">
+       <link href="<c:url value="/resources/css/bootstrap.css" />" rel="stylesheet"> 
+    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="icon" href='<c:url value="/resources/images/t.png" />' type="image/x-icon">
         
         <title>Tugambeta</title>

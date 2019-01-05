@@ -3,30 +3,35 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <!doctype html>
-<html  class="uk-light uk-section-primary ">
+<html >
     <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-        <link href="<c:url value="/resources/css/uikit.css" />" rel="stylesheet">
-        <link href="<c:url value="/resources/fonts/djgross.css" />" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/js/uikit.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/js/uikit-icons.min.js"></script>
-        <link rel="shortcut icon" href='<c:url value="/resources/images/t.png" />' type="image/x-icon">
-        <link rel="icon" href='<c:url value="/resources/images/t.png" />' type="image/x-icon">
+        <link href="<c:url value="/resources/css/bootstrap.css" />" rel="stylesheet"> 
         
+       
+      
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     
+       
+         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+        <script type="text/javascript" 
+        src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
+        <script
+        src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         <title>Tugambeta</title>
 
     </head>
-    <body>
-        <div class="uk-offcanvas-content">
-        <div class="page">
-            <tiles:insertAttribute name="header" />
-            <div class="content">
+    <body class="" >
 
-                <tiles:insertAttribute name="body" />
-            </div>
-            <tiles:insertAttribute name="footer" />
+        <tiles:insertAttribute name="header" />
+        <div class="">
+
+            <tiles:insertAttribute name="body" />
         </div>
-        </div>
+        <tiles:insertAttribute name="footer" />
+
+
     </body>
 </html>

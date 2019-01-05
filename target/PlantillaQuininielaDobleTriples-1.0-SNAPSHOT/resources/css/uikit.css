@@ -24,10 +24,10 @@ html {
   /* 2 */
   -webkit-text-size-adjust: 100%;
   /* 3 */
-  
+  /*
   background: #fff;
   color: #666;
-  
+  */
 }
 /*
  * Remove the margin in all browsers.
@@ -2199,7 +2199,11 @@ select.uk-form-width-xsmall {
  * Primary
  */
 .uk-section-primary {
-  background: #00cc44;
+  /*background: #00cc44;*/
+  background-image: url('fondo.jpg');
+ background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
 }
 /*
  * Secondary
