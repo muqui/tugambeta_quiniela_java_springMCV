@@ -1,6 +1,7 @@
 package com.muqui.corona.model;
 // Generated 5/11/2016 06:03:56 PM by Hibernate Tools 4.3.1
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -120,7 +121,9 @@ public class Partidos implements java.io.Serializable {
         this.golesvisita = golesvisita;
     }
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "partidos")
+     @OneToMany(fetch = FetchType.EAGER, mappedBy = "partidos")
+    //@OneToMany(fetch = FetchType.LAZY, mappedBy = "partidos") se cambio  de lazy a eager REST
+    @JsonIgnore         //cambios REST
     public Set<Jugadorresultados> getJugadorresultadoses() {
         return this.jugadorresultadoses;
     }

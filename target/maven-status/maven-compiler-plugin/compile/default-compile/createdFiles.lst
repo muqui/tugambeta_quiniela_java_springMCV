@@ -38,3 +38,4 @@ com\muqui\corona\model\Jugadorresultados.class
 com\muqui\corona\service\QuinielaServiceImpl.class
 com\muqui\corona\model\EstadisticaTorneo.class
 com\muqui\corona\controller\LoginController.class
+com\muqui\corona\controller\ServidorRest.class

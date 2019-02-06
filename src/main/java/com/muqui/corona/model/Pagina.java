@@ -1,6 +1,7 @@
 package com.muqui.corona.model;
 // Generated 5/11/2016 06:03:56 PM by Hibernate Tools 4.3.1
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -66,6 +67,7 @@ public class Pagina implements java.io.Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "users_username", nullable = false)
+    @JsonBackReference
     public Users getUsers() {
         return this.users;
     }
