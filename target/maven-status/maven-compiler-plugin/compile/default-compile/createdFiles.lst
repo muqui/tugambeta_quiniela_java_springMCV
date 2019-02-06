@@ -1,3 +1,4 @@
+com\muqui\corona\configuration\CustomBasicAuthenticationEntryPoint.class
 com\muqui\corona\model\EstadisticaEquipo.class
 com\muqui\corona\model\UserRoles.class
 com\muqui\corona\model\Partidos.class
@@ -27,6 +28,7 @@ com\muqui\corona\model\Pagina.class
 com\muqui\corona\controller\EstadisticaControllador.class
 com\muqui\corona\model\Contact.class
 com\muqui\corona\service\EstadisticasServiceImpl.class
+com\muqui\corona\configuration\CORSFilter.class
 com\muqui\corona\configuration\SecurityConfig.class
 com\muqui\corona\service\EstadisticasService.class
 com\muqui\corona\model\Liga.class
