@@ -90,13 +90,16 @@ src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
         <div class="login">
             <div class="login-header">
-                <h1>Crear Grupo</h1>
+                <h1>Crear Grupo 2</h1>
             </div>
             <div class="login-form">
-                <c:url var="creargrupo" value="/creargrupo" />
-                <form:form method="POST" action="${creargrupo}" modelAttribute="user" id="adduser">
+              
+                      <c:url var="jugar" value="/creargrupo" />
+                <form:form method="POST" action="${jugar}" modelAttribute="jugador" id="registerform" onsubmit="return validarFormulario()">
 
-                    <h3>Grupo:*</h3>
+
+                   
+                     <h3>Grupo:*</h3>
                     <input type="text"  name="username"   id="username" placeholder="Grupo" cssClass="form-control"/><br>
                     <h3>Tipo:*</h3>
                     <select name="passwordConfirm">
@@ -106,15 +109,13 @@ src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
                     <h3>Contraseña:*</h3>
                     <input type="text"  name="password" id="password" placeholder="contraseña "/> <br>
 
-
-
+                    <input type="submit"  class="login-button" value="Enviar"/>
                     <input type="hidden" name="${_csrf.parameterName}"
                            value="${_csrf.token}" />
-                    <input type="submit" value="Crear" class="login-button"/>
+
 
 
                 </form:form>
-
 
 
             </div>
