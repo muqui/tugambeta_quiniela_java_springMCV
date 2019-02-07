@@ -1,57 +1,44 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<header>
 
-    <head>
-     
-        <!-- FIN Codigo se seguimiento-->
-        <meta name="viewport" content="widht=device-widht, initial-scale=1, maximum-scala=1">
-        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-        <meta charset="UTF-8">    
-        <meta name="viewport" content="widht=device-widht, initial-scale=1, maximum-scala=1">
-        <link href="<c:url value="/resources/css/estilo.css" />" rel="stylesheet">
-        <link href="<c:url value="/resources/css/normalize.css" />" rel="stylesheet">
-        <link href='https://fonts.googleapis.com/css?family=Candal' rel='stylesheet' type='text/css'>
-        <link href="<c:url value="/resources/css/footable.core.css" />" rel="stylesheet">
-        <script src="/js/modernizr-custom.js"></script>   
-        <link href="<c:url value="/resources/css/estilo.css" />" rel="stylesheet">
+<head>
+    <title>Quiniela de futbol</title>
+    <meta name="viewport" content="widht=device-widht, initial-scale=1, maximum-scala=1">
+   
+    <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+<!--
+    <link href="<c:url value="/resources/css/Q2y3index.css" />" rel="stylesheet">  
+-->
+    <link href="<c:url value="/resources/css/footable.core.css" />" rel="stylesheet">  
+    <script src="resources/js/Q2y3index.js"></script>  
 
+</head>
+    <nav class="navbar navbar-full   color-azul ">
+    <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#mainNavbarCollapse">
+	&#9776;
+	</button>
+    <a class="navbar-brand" href="/"><img  src="/resources/images/logo2.png" ></a>
+    <div class="collapse navbar-toggleable-md" id="mainNavbarCollapse">
+        
+   
+        <ul class="nav navbar-nav  pull-lg-right ">
 
-
-
-
-
-        <script src="js/dynamic_list_helper.js" type="text/javascript"></script>
-        <script src="resources/js/dynamic_list_helper.js" type="text/javascript"></script>
-        <title>${userId}</title>
-
-    </head>
-    <input type="checkbox" id="btn-menu">
-    <label for="btn-menu"><img src="/resources/images/menu.jpg"></label>
-    <nav class="menu">
-        <ul>
-
-              <div class="logomenu">
-                <a href="/"><img  src="/resources/images/logo.png" height="60px" width="160px"></a></li>
+              
 
 
-            </div>
-
-
-            <li><a href="/admin">Crear Quiniela</a></li>
-            <li><a href="/admin/quinielas">Quinielas </a></li>
-             <li><a href="/admin/grupos">Grupos </a></li>
-               <li><a href="/admin/formchangepassword">Cambiar contraseña </a></li>
-               <li><a href="/admin/tabla">Tabla General</a></li> 
-               <li><a href="/resultadosestadistica">Resultados</a></li>
-            <li><a href="/admin">home </a></li>
-            <li><a  <c:if test="${pageContext.request.userPrincipal.name != null}">href="javascript:formSubmit()"></c:if>Salir </a></li>
+            <li  class="nav-item active "><a class="nav-link fuente-verde" href="/admin">Crear Quiniela</a></li>
+            <li  class="nav-item active "><a  class="nav-link fuente-verde" href="/admin/quinielas">Quinielas </a></li>
+             <li  class="nav-item active "><a class="nav-link fuente-verde" href="/admin/grupos">Grupos </a></li>
+               <li  class="nav-item active "><a class="nav-link fuente-verde" href="/admin/formchangepassword">Cambiar contraseña </a></li>
+               <li  class="nav-item active "><a class="nav-link fuente-verde" href="/admin/tabla">Tabla General</a></li> 
+               <li  class="nav-item active "><a  class="nav-link fuente-verde"href="/resultadosestadistica">Resultados</a></li>
+            <li  class="nav-item active "><a class="nav-link fuente-verde" href="/admin">home </a></li>
+            <li  class="nav-item active "><a class="nav-link fuente-verde"  <c:if test="${pageContext.request.userPrincipal.name != null}">href="javascript:formSubmit()"></c:if>Salir </a></li>
             </ul>
+             </div>
         </nav>  
 
-  <div class="logoheader" >
-        <a href="/"><img src="/resources/images/logo.png" height="50px" width="150px"></a>
-
-    </header>
+  
+   
 <c:url value="/logout" var="logoutUrl" />
 <form action="${logoutUrl}" method="post" id="logoutForm">
     <input type="hidden" name="${_csrf.parameterName}"

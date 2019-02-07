@@ -26,7 +26,7 @@
 
 <tiles:insertDefinition name="indexadmingrupotemplate">
     <tiles:putAttribute name="body">
-        <link href="<c:url value="/resources/css/index.css" />" rel="stylesheet">
+      
 
         <script>
             $(document).ready(function () {
@@ -68,13 +68,12 @@
         </script>
     </head>
     <body>
-           <div class="login">
-            <div class="login-header">
+           <div class="container">
+            <div class="card card-container">
                 <h1>Cambiar clave Grupo</h1>
-            </div>
-            <div class="login-form">
+            
                 <c:url var="creargrupo" value="/admingrupo/cambiarclave" />
-                <form:form method="POST" action="${creargrupo}" modelAttribute="user" id="adduser">
+                <form:form method="POST" class="form-signin" action="${creargrupo}" modelAttribute="user" id="adduser">
 
                     <h3>Grupo:*</h3>
                     <input type="text"  name="username"  value="${user.username}"  readonly   id="username" placeholder="Grupo" cssClass="form-control"/><br>

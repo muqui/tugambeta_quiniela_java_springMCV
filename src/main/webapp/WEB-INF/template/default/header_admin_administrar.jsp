@@ -1,29 +1,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<header>
 
-    <head>
-        
-        <meta name="viewport" content="widht=device-widht, initial-scale=1, maximum-scala=1">
-        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-        <meta charset="UTF-8">    
-        <meta name="viewport" content="widht=device-widht, initial-scale=1, maximum-scala=1">
-        <link href="<c:url value="/resources/css/estilo.css" />" rel="stylesheet">
-        <link href="<c:url value="/resources/css/normalize.css" />" rel="stylesheet">
-        <link href='https://fonts.googleapis.com/css?family=Candal' rel='stylesheet' type='text/css'>
-        <link href="<c:url value="/resources/css/footable.core.css" />" rel="stylesheet">
-        <script src="/js/modernizr-custom.js"></script>   
-        <link href="<c:url value="/resources/css/estilo.css" />" rel="stylesheet">
+<head>
+    <title>Quiniela de futbol</title>
+    <meta name="viewport" content="widht=device-widht, initial-scale=1, maximum-scala=1">
+   
+    <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+<!--
+    <link href="<c:url value="/resources/css/Q2y3index.css" />" rel="stylesheet">  
+-->
+    <link href="<c:url value="/resources/css/footable.core.css" />" rel="stylesheet">  
+    <script src="resources/js/Q2y3index.js"></script>  
 
-
-
-
-
-
-        <script src="js/dynamic_list_helper.js" type="text/javascript"></script>
-        <script src="resources/js/dynamic_list_helper.js" type="text/javascript"></script>
-        <title>${userId}</title>
-
-    </head>
+</head>
     <input type="checkbox" id="btn-menu">
     <label for="btn-menu"><img src="/resources/images/menu.jpg"></label>
     <nav class="menu">
@@ -42,7 +30,7 @@
 
 
 
-    </header>
+    
 <c:url value="/logout" var="logoutUrl" />
 <form action="${logoutUrl}" method="post" id="logoutForm">
     <input type="hidden" name="${_csrf.parameterName}"

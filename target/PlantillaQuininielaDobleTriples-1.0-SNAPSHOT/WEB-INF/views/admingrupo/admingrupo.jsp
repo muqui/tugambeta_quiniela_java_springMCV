@@ -98,17 +98,17 @@ src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
 
                    
-                     <h3>Grupo:*</h3>
-                    <input type="text"  name="username"   id="username" placeholder="Grupo" cssClass="form-control"/><br>
-                    <h3>Tipo:*</h3>
-                    <select name="passwordConfirm">
+                     <p>Grupo:*</p>
+                    <input type="text"  name="username"   id="username" placeholder="Grupo" class="form-control"/><br>
+                    <p>Tipo:*</p>
+                    <select name="passwordConfirm" class="form-control">
                         <option value="q_ligamx" selected >Liga mx</option> 
                         <option value="q_personal" >personalizada</option>              
                     </select> <br>   
-                    <h3>Contraseña:*</h3>
-                    <input type="text"  name="password" id="password" placeholder="contraseña "/> <br>
+                    <p>Contraseña:*</p>
+                    <input type="text"  name="password" id="password" placeholder="contraseña " class="form-control"/> <br>
 
-                    <input type="submit"  class="login-button" value="Enviar"/>
+                    <input type="submit"  class="btn btn-lg btn-primary btn-block btn-signin" value="Enviar"/>
                     <input type="hidden" name="${_csrf.parameterName}"
                            value="${_csrf.token}" />
 

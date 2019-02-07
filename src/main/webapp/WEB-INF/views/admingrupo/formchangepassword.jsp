@@ -125,19 +125,18 @@ src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
 
 
-        <div class="login">
-            <div class="login-header">
-                <h1>Cambiar contraseña</h1>
-            </div>
-            <div class="login-form">
+        <div class="container">
+            <div class="card card-container">
+                <p class="profile-name-card">Cambiar contraseña</p>
+           
                 <c:url var="creargrupo" value="/admingrupo/changepassword" />
-                <form:form method="POST" action="${creargrupo}" modelAttribute="user" id="adduser">
+                <form:form method="POST" class="form-signin"  action="${creargrupo}" modelAttribute="user" id="adduser">
 
 
-                    <h3>Contraseña nueva*</h3>
-                    <input type="password"  name="password"      id="password" placeholder="Grupo" cssClass="form-control"/><br>
-                    <h3>Contraseña confirmacion*</h3>
-                    <input type="password"  name="passwordConfirm"      id="passwordConfirm" placeholder="Grupo" cssClass="form-control"/><br>
+                    <p>Contraseña nueva*</p>
+                    <input type="password"  name="password"      id="password" placeholder="" cssClass="form-control"/><br>
+                    <p>Contraseña confirmacion*</p>
+                    <input type="password"  name="passwordConfirm"      id="passwordConfirm" placeholder="" cssClass="form-control"/><br>
 
                     <input type="hidden" name="username" value="${user.username}">
                     <input type="hidden" name="email" value="${user.email}">
@@ -145,7 +144,7 @@ src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
                     <input type="hidden" name="${_csrf.parameterName}"
                            value="${_csrf.token}" />
-                    <input type="submit" value="Cambiar" class="login-button"/>
+                    <input type="submit" value="Cambiar" class="btn btn-lg btn-primary btn-block btn-signin"/>
 
 
                 </form:form>
