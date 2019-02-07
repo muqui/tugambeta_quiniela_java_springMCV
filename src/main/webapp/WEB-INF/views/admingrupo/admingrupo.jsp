@@ -156,7 +156,8 @@ src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
 
                         <th><a href="/admingrupo/formulariocambiarclavegrupo?nombre=${grupo.nombre}">Cambiar clave</a></td>
-                        <td><a href="/admingrupo/doblesytriples?id=${grupo.id}"   >dobles y triples</a></td>  
+                        <td><a href="/admingrupo/doblesytriples?id=${grupo.id}"   >dobles y triples</a></td> 
+                         <td><a href="/admingrupo/eliminargrupo?id=${grupo.nombre}"   >Eliminar</a></td> 
 
                     </tr>  
                 </c:forEach>  

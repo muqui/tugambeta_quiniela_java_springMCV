@@ -205,6 +205,11 @@ public class QuinielaServiceImpl implements QuinielaService {
        dao.actualizarResultadoIdGrupo(partido, idGrupo);
     }
 
+    @Override
+    public void eliminarGrupo(String nombre) {
+        dao.eliminarGrupo(nombre);
+    }
+
     
     
 

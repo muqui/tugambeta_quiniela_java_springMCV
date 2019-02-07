@@ -14,11 +14,12 @@
 <tiles:insertDefinition name="templateadmingrupo">
     <tiles:putAttribute name="body">
  
-        <h1> Editar: ${user} </h1>
-      
-   <div class="body">
-            <h1>Home page !</h1>
- 
+       
+  
+          
+  <div class="container">
+            <div class=" card card-container">
+                <p id="profile-name" class="profile-name-card">Editar: ${user}</p>
           <c:url var="update" value="/admingrupo/update" />
       <form:form method="POST" action="${update}"  modelAttribute="partido">
    <table  class="table footable">
@@ -34,7 +35,7 @@
    
     <tr>
         <td colspan="2">
-            <input type="submit" value="Actualizar"/>
+            <input type="submit" class="btn btn-lg btn-primary btn-block btn-signin" value="Actualizar"/>
         </td>
     </tr>
 </table>  
@@ -45,6 +46,7 @@
 </form:form>
         
         </div>
+       </div>
        
  
     </tiles:putAttribute>

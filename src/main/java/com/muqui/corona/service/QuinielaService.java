@@ -105,7 +105,7 @@ public interface QuinielaService {
 
     public void actualizarResultadoIdGrupo(Partidos partido, String idGrupo);
 
-   
+   public void eliminarGrupo(String nombre);
 
  
 

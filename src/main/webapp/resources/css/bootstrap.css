@@ -240,3 +240,33 @@ footer {
     font-weight: bold;
     text-align: center;
 }
+
+@media (max-width: 768px){
+    
+    
+    #crearquiniela{
+        width: 100%;
+    }
+   
+
+    #crearquiniela thead {
+        display: none;
+    }
+    
+    #crearquiniela tr:nth-of-type(2n) {
+        background-color: inherit;
+    }
+     
+     #crearquiniela  td {
+
+        display: block;  text-align:center;
+    }
+   
+    #crearquiniela  td:before { 
+        content: attr(data-th); 
+        display: block;
+        text-align:center;  
+    }
+     
+}
+    

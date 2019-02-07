@@ -883,4 +883,11 @@ public class QuinielaDaoImpl implements QuinielaDao {
 
         }
     }
+
+    @Override
+    public void eliminarGrupo(String nombre) {
+        Users grupo = findByUserName(nombre);
+        Session session = this.sessionFactory.getCurrentSession();
+        //session.delete(grupo);
+    }
 }

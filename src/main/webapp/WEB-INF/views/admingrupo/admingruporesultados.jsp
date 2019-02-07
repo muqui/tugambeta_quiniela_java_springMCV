@@ -23,8 +23,11 @@
 <script
 src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-<link href="<c:url value="/resources/css/estilo.css" />" rel="stylesheet">
+<!--
+<link href="<c:url value="/resources/css/estilox.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/normalize.css" />" rel="stylesheet">
+-->
+
 <script src="/resources/js/validar.js" type="text/javascript"></script>
 <script src="/resources/js/dynamic_list_helper.js" type="text/javascript"></script> <%-- Para crear Quiniela --%>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
@@ -33,40 +36,44 @@ src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
 <tiles:insertDefinition name="templateadmingrupo">
     <tiles:putAttribute name="body">
-        <h3> resultados</h3>
-<table class="table footable" >  
-            <tr id="HeadRow">
-                <th> Local</th> 
-                <th> G </th> 
-                <th> Visita</th> 
-                <th> G </th> 
-                <th> Act</th>
-            </tr>
-            <c:forEach items="${partidos}" var="partido" varStatus="status">
-                <tr>
+        <div class="container">
+            <div class=" card">
+                <p id="profile-name" class="profile-name-card">resultados</p>
+
+                <table class="table footable" >  
+                    <tr id="HeadRow">
+                        <th> Local</th> 
+                        <th> G </th> 
+                        <th> Visita</th> 
+                        <th> G </th> 
+                        <th> Act</th>
+                    </tr>
+                    <c:forEach items="${partidos}" var="partido" varStatus="status">
+                        <tr>
 
 
-                    <td tableHeadData='Local'>
-                        <label for="${partido.local}">${partido.local}</label>                
-                    </td>
-                    <td tableHeadData='Goles Local'>
-                        ${partido.goleslocal}  
-                    </td>
-                    <td tableHeadData='Visita'>
-                        <label for="${partido.visitante}">${partido.visitante}</label>
-                    </td>
-                    <td tableHeadData='Goles Visita'>
+                            <td tableHeadData='Local'>
+                                <label for="${partido.local}">${partido.local}</label>                
+                            </td>
+                            <td tableHeadData='Goles Local'>
+                                ${partido.goleslocal}  
+                            </td>
+                            <td tableHeadData='Visita'>
+                                <label for="${partido.visitante}">${partido.visitante}</label>
+                            </td>
+                            <td tableHeadData='Goles Visita'>
 
-                        ${partido.golesvisita}
-                    </td>
-                    <td tableHeadData='Actualizar'><a href="editar?id=${partido.idpartidos}">Actualizar</a></td>  
-                </tr>
+                                ${partido.golesvisita}
+                            </td>
+                            <td tableHeadData='Actualizar'><a href="editar?id=${partido.idpartidos}">Actualizar</a></td>  
+                        </tr>
 
-            </c:forEach>
+                    </c:forEach>
 
-        </table>  
-  
-    </tiles:putAttribute>
-</tiles:insertDefinition>
+                </table>  
+                </div>
+                </div>
+            </tiles:putAttribute>
+        </tiles:insertDefinition>
 
 

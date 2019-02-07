@@ -312,4 +312,12 @@ public class AdminGrupoController {
         return "redirect:" + redirectUrl;
         // return "userregistrado";
     }
+    
+     @RequestMapping("/admingrupo/eliminargrupo")
+    public String eliminarGrupo( @RequestParam String id) {
+        System.out.println("ELIMINAR GRUPO  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyy   = " + id);
+        quinielaService.eliminarGrupo(id);
+
+        return "redirect:/admingrupo";
+    }
 }

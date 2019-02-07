@@ -103,5 +103,7 @@ public interface QuinielaDao {
 
     public void actualizarResultadoIdGrupo(Partidos partido, String idGrupo);
 
+    public void eliminarGrupo(String nombre);
+
    
 }

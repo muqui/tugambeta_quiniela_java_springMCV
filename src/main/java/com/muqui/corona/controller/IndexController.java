@@ -110,10 +110,16 @@ public class IndexController {
 //            String redirectUrl = "quiniela/pruebas";
 //            return "redirect:" + redirectUrl;
 //        }
-        if (role.equalsIgnoreCase("ROLE_ADMIN") || role.equalsIgnoreCase("ROLE_ADMIN") || role.equalsIgnoreCase("ROLE_ADMIN")) {
+        if (role.equalsIgnoreCase("ROLE_ADMIN") ) {
             System.out.println("ROLE_ADMIN ");
-            return "redirect:/";
-        } else {
+            return "redirect:/admin";
+        } else
+            
+        if (role.equalsIgnoreCase("ROLE_ADMIN_GRUPO") ) {
+            System.out.println("ROLE_ADMIN_GRUPO ");
+            return "redirect:/admingrupo";
+        }
+        else {
             return "redirect:/";
         }
 

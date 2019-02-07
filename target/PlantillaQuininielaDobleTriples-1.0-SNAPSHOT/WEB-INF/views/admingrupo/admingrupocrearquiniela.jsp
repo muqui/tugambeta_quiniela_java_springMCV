@@ -26,7 +26,9 @@
 <script
 src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-<link href="<c:url value="/resources/css/estilo.css" />" rel="stylesheet">
+<!--
+<link href="<c:url value="/resources/css/estilox.css" />" rel="stylesheet">
+-->
 <link href="<c:url value="/resources/css/normalize.css" />" rel="stylesheet">
 <script src="/resources/js/validar.js" type="text/javascript"></script>
 <script src="/resources/js/dynamic_list_helper.js" type="text/javascript"></script> <%-- Para crear Quiniela --%>
@@ -101,86 +103,88 @@ src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
         </script>
 
-        <h1>Crear Quiniela!</h1>
-       
-        <div id = "formcrear" >
-        <c:url var="crearQ" value="${cp}/admingrupo/editpersonlistcontainer" />
-        <form:form action="${crearQ}" modelAttribute="partidoLista" method="post" id="personListForm">
-            
-            <div id="campos1">
-                <div> <label for="nombre" >Nombre:</label> </div>
-                <div> <form:input path="nombre"  id="nombre"   /></div>
-                <div> <form:errors path="nombre" /> </div> 
-                 
-            </div>
-            <div id="campos1" >
-                <div> <label for="fechaTemporal" >fecha limite:</label></div>
-                  <div> <form:input path="fechaTemporal" type="datetime-local"  id="fechaTemporal"   /></div>
-                    <div> <form:errors path="fechaTemporal" /></div>
-               
-                   
-                   
-            </div>
-            <input id="id" name="pagina.nombre" type="hidden" value="${user}"/>
-          <table id="crearquiniela">
-                <thead>
-                    <tr>
-                        <th>Local</th>
-                        <th>Visitante</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="personListContainer">
-                    <c:forEach items="${partidoLista.partidoses}" var="partidoLista" varStatus="i" begin="0" >
-                        <tr  class="person">    
-                            <td><form:input path="partidoses[${i.index}].local" id="local${i.index}"  placeholder="Local" /></td>
-                            <td><form:input path="partidoses[${i.index}].visitante" id="visitante${i.index}"   placeholder="Visita"/></td>
-                            <%--
-                            <td><input type="text" name="personList[].name" value="${Person.name}" /></td>
-                            <td><input type="text" name="personList[].age" value="${Person.age}" /></td>
+
+
+        <div class="container">
+            <div class=" card ">
+                <p id="profile-name" class="profile-name-card">Crear Quiniela!</p>
+                <c:url var="crearQ" value="${cp}/admingrupo/editpersonlistcontainer" />
+                <form:form class="form-signin"  action="${crearQ}" modelAttribute="partidoLista" method="post" id="personListForm">
+
+
+                    <label for="nombre" >Nombre:</label> 
+                    <form:input path="nombre"  id="nombre"  class="form-control"  />
+                    <form:errors path="nombre" /> 
+
+
+
+                    <label for="fechaTemporal" >fecha limite:</label>
+                    <form:input path="fechaTemporal" type="datetime-local"  id="fechaTemporal" class="form-control"   />
+                    <form:errors path="fechaTemporal" />
+
+
+
+                    <input id="id" name="pagina.nombre" type="hidden" value="${user}"/>
+                    <table id="crearquiniela" class="table">
+                        <thead>
+                            <tr>
+                                <th>Local</th>
+                                <th>Visitante</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="personListContainer">
+                            <c:forEach items="${partidoLista.partidoses}" var="partidoLista" varStatus="i" begin="0" >
+                                <tr  class="person">    
+                                    <td><form:input path="partidoses[${i.index}].local" id="local${i.index}"  placeholder="Local" class="form-control" /></td>
+                                    <td><form:input path="partidoses[${i.index}].visitante" id="visitante${i.index}"   placeholder="Visita" class="form-control"  /></td>
+                                    <%--
+                                    <td><input type="text" name="personList[].name" value="${Person.name}" /></td>
+                                    <td><input type="text" name="personList[].age" value="${Person.age}" /></td>
+                                    --%>
+                                    <td><a href="#" class="removePerson btn btn-danger">Quitar partido</a></td>
+                                </tr>
+                            </c:forEach>
+                            <%-- 
+                                IMPORTANT 
+                                There must always be one row.
+                                This is to allow the JavaScript to clone the row.
+                                If there is no row at all, it cannot possibly add a new row.
+                            
+                                If this 'default row' is undesirable 
+                                    remove it by adding the class 'defaultRow' to the row
+                                I.e. in this case, class="person" represents the row.
+                                Add the class 'defaultRow' to have the row removed.
+                                This may seem weird but it's necessary because 
+                                a row (at least one) must exist in order for the JS to be able clone it.
+                                <tr class="person"> : The row will be present
+                                <tr class="person defaultRow"> : The row will not be present
                             --%>
-                            <td><a href="#" class="removePerson">Quitar partido</a></td>
-                        </tr>
-                    </c:forEach>
-                    <%-- 
-                        IMPORTANT 
-                        There must always be one row.
-                        This is to allow the JavaScript to clone the row.
-                        If there is no row at all, it cannot possibly add a new row.
+                            <c:if test="${personListContainer.personList.size() == 0}">
+                                <tr class="person defaultRow">    
+                                    <td><input type="text" name="partidoses[].local" value="" /></td>
+                                    <td><input type="text" name="partidoses[].visitante" value="" /></td>
+
+                                    <td><a href="#" class="removePerson">Remove Person</a></td>
+                                </tr>
+                            </c:if>
+                        </tbody>
+                    </table>
                     
-                        If this 'default row' is undesirable 
-                            remove it by adding the class 'defaultRow' to the row
-                        I.e. in this case, class="person" represents the row.
-                        Add the class 'defaultRow' to have the row removed.
-                        This may seem weird but it's necessary because 
-                        a row (at least one) must exist in order for the JS to be able clone it.
-                        <tr class="person"> : The row will be present
-                        <tr class="person defaultRow"> : The row will not be present
-                    --%>
-                    <c:if test="${personListContainer.personList.size() == 0}">
-                        <tr class="person defaultRow">    
-                            <td><input type="text" name="partidoses[].local" value="" /></td>
-                            <td><input type="text" name="partidoses[].visitante" value="" /></td>
+                          <a href="#" class="btn btn btn-lg btn-primary btn-block btn-signin" id="addPerson">agregar partido</a>
+                           <a href="?f=" class="btn btn-lg btn-primary btn-block btn-signin">Limpiar lista</a>
+                        <input type="submit" value="Crear Quiniela" id="submit"  class="btn btn-lg btn-primary btn-block btn-signin" />
+                   
 
-                            <td><a href="#" class="removePerson">Remove Person</a></td>
-                        </tr>
-                    </c:if>
-                </tbody>
-            </table>
-                    <div id="botones">
-                        <div>   <a href="#" id="addPerson">agregar partido</a>&nbsp;&nbsp;</div>
-                        <div>   <a href="?f=">Limpiar lista</a></div>
-                        <div> <input type="submit" value="Crear Quiniela" id="submit"  class="myButton" />&nbsp;&nbsp;</div>
-                    </div>
-         
-         
-           
 
-            <input type="hidden" name="${_csrf.parameterName}"
-                   value="${_csrf.token}" />
-         
-        </form:form>    
-   </div>
+
+
+                    <input type="hidden" name="${_csrf.parameterName}"
+                           value="${_csrf.token}" />
+
+                </form:form>   
+            </div>
+        </div>
         <script type="text/javascript">
             function rowAdded(rowElement) {
                 //clear the imput fields for the row
@@ -225,7 +229,7 @@ src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
             });
         </script>
 
-      
+
     </tiles:putAttribute>
 </tiles:insertDefinition>
 

@@ -22,9 +22,10 @@
 
 <script
 src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
+<!--
 <link href="<c:url value="/resources/css/estilo.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/normalize.css" />" rel="stylesheet">
+-->
 <script src="/resources/js/validar.js" type="text/javascript"></script>
 <script src="/resources/js/dynamic_list_helper.js" type="text/javascript"></script> <%-- Para crear Quiniela --%>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">

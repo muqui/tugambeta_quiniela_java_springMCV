@@ -70,23 +70,23 @@
     <body>
            <div class="container">
             <div class="card card-container">
-                <h1>Cambiar clave Grupo</h1>
+                <p id="profile-name" class="profile-name-card">Cambiar clave Grupo</p>
             
                 <c:url var="creargrupo" value="/admingrupo/cambiarclave" />
                 <form:form method="POST" class="form-signin" action="${creargrupo}" modelAttribute="user" id="adduser">
 
-                    <h3>Grupo:*</h3>
-                    <input type="text"  name="username"  value="${user.username}"  readonly   id="username" placeholder="Grupo" cssClass="form-control"/><br>
+                    <p>Grupo:*</p>
+                    <input type="text"  name="username"  value="${user.username}"  readonly   id="username" placeholder="Grupo" class="form-control"/><br>
                       
-                    <h3>Contraseña:*</h3>
-                    <input type="text"  name="password" id="password" placeholder="contraseña "/> <br>
+                    <p>Contraseña:*</p>
+                    <input type="text"  name="password" id="password" placeholder="contraseña " class="form-control"/> <br>
                       
                      <input type="hidden" name="enabled" value="${user.enabled}">
                       <input type="hidden" name="email" value="x">
 
                     <input type="hidden" name="${_csrf.parameterName}"
                            value="${_csrf.token}" />
-                    <input type="submit" value="Cambiar" class="login-button"/>
+                    <input type="submit" value="Cambiar" class="btn btn-lg btn-primary btn-block btn-signin"/>
 
 
                 </form:form>

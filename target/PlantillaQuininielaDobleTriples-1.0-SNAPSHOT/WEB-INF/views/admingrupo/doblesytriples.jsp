@@ -83,19 +83,18 @@
         </script>
     </head>
     <body>
-           <div class="login">
-            <div class="login-header">
-                <h1>Cambio de dobles y triples grupo: ${pagina.nombre}</h1>
-            </div>
-            <div class="login-form">
+           <div class="container">
+            <div class="card card-container">
+                <p id="profile-name" class="profile-name-card">Cambio de dobles y triples grupo: ${pagina.nombre}</p>
+            
                 <c:url var="creargrupo" value="/admingrupo/cambiardoblesytriples" />
-                <form:form method="POST" action="${creargrupo}" modelAttribute="pagina" id="pagina">
+                <form:form class="form-signin"  method="POST" action="${creargrupo}" modelAttribute="pagina" id="pagina">
                
-                    <h3>Dobles*</h3>
-                    <input type="text"  name="dobles"  value="${pagina.dobles}"    id="dobles" placeholder="dobles" cssClass="form-control"/><br>
+                    <p>Dobles*</p>
+                    <input type="text"  name="dobles"  value="${pagina.dobles}"    id="dobles" placeholder="dobles" class="form-control"/><br>
                       
-                    <h3>Triples:*</h3>
-                    <input type="text"  name="triples" value="${pagina.triples}"  id="triples" placeholder="triples "/> <br>
+                    <p>Triples:*</p>
+                    <input type="text"  name="triples" value="${pagina.triples}"  id="triples" placeholder="triples " class="form-control"/> <br>
                          <input type="hidden" name="id" value="${pagina.id}">
                          
                          

@@ -22,9 +22,10 @@
 
 <script
 src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
-<link href="<c:url value="/resources/css/estilo.css" />" rel="stylesheet">
+<!--
+<link href="<c:url value="/resources/css/estilox.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/normalize.css" />" rel="stylesheet">
+-->
 <script src="/resources/js/validar.js" type="text/javascript"></script>
 <script src="/resources/js/dynamic_list_helper.js" type="text/javascript"></script> <%-- Para crear Quiniela --%>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
@@ -33,46 +34,45 @@ src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
 <tiles:insertDefinition name="templateadmingrupo">
     <tiles:putAttribute name="body">
-        <h3>editar quiniela</h3>
 
-       
 
-        <div class="body">
 
-            <c:url value="/admingrupo/updatequiniela" var="updatequiniela" />
-            <div id = "actualizarSQ">
+
+        <div class="container">
+            <div class="card card-container">
+                <p id="profile-name" class="profile-name-card">editar quiniela</p>
+                <c:url value="/admingrupo/updatequiniela" var="updatequiniela" />
+
                 <form:form method="POST" action="${updatequiniela}"  modelAttribute="quiniela" id="actquiniela">
 
-                    <div class="actualizarQ">                       
-                             <label for="idquiniela">ID:</label>
-                        <div> 
-                            <form:input path="idquiniela" readonly="true" disabled="true" value="${quiniela.idquiniela}" />
-                        </div>
-                    </div>
-                    <div class="actualizarQ">                       
-                             <label for="nombre" >Nombre:</label>                      
-                        <div>                            
-                            <form:input path="nombre"  value="${quiniela.nombre}"/>
-                        </div>
-                    </div>
-                         <div class="actualizarQ">                       
-                             <label for="nombre" >Nombre:</label>                      
-                             
-                    </div>
+                                          
+                        <p for="idquiniela">ID:</p>
+                       
+                            <form:input path="idquiniela" readonly="true" disabled="true" value="${quiniela.idquiniela}" class="form-control" />
+                      
+                    
+                                         
+                        <p for="nombre" >Nombre:</p>                      
+                                                   
+                            <form:input path="nombre"  value="${quiniela.nombre}" class="form-control"/>
+                       
+                                           
+                        <p for="nombre" >Nombre:</p>                      
+
+                  
+
+
+
+
+                   
+                        <p for="nombre" >Fecha Limite:</p>                     
                         
-                        
-                        
-                        
-                    <div class="actualizarQ">
-                             <label for="nombre" >Fecha Limite:</label>                     
-                        <div> 
-                           
-                            <form:input type="datetime-local"  path="fechaTemporal"  value=""/>
-                        </div>
-                    </div>
-                    <div class="actualizarQ">
-                        <div><input type="submit" value="Submit" class="myButton"/></div>
-                    </div>
+
+                            <form:input type="datetime-local"  path="fechaTemporal"  value="" class="form-control"/>
+                        <br>
+                    
+                        <input type="submit" value="Editar" class="btn btn-lg btn-primary btn-block btn-signin"/>
+                   
 
 
 
