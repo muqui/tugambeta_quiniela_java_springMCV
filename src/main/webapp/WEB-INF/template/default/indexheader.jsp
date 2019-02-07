@@ -24,7 +24,7 @@
                 <a class="nav-link fuente-verde" href="#">Screenshot</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link fuente-verde" href="/comojugar">¿Como jugar?</a>
+                <a class="nav-link fuente-verde" href="#">¿Como jugar?</a>
             </li>
 
             <c:if test="${pageContext.request.userPrincipal.name == null}">            

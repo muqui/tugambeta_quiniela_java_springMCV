@@ -88,14 +88,13 @@ src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
 
 
-        <div class="login">
-            <div class="login-header">
-                <h1>Crear Grupo 2</h1>
-            </div>
-            <div class="login-form">
+        <div class="container">
+            <div class="card card-container">
+                 <p id="profile-name" class="profile-name-card">Crear Grupo</p>
+            
               
                       <c:url var="jugar" value="/creargrupo" />
-                <form:form method="POST" action="${jugar}" modelAttribute="jugador" id="registerform" onsubmit="return validarFormulario()">
+                <form:form method="POST" class="form-signin" action="${jugar}" modelAttribute="jugador" id="registerform" onsubmit="return validarFormulario()">
 
 
                    
