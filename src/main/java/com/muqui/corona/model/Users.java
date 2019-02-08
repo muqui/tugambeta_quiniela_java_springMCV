@@ -94,7 +94,7 @@ public class Users implements java.io.Serializable {
         this.enabled = enabled;
     }
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "users", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "users", cascade = CascadeType.REMOVE)
     
     @JsonIgnore
     public Set<UserRoles> getUserRoleses() {
@@ -105,7 +105,7 @@ public class Users implements java.io.Serializable {
         this.userRoleses = userRoleses;
     }
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "users", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "users", cascade = CascadeType.REMOVE)
     @JsonIgnore
     public Set<Pagina> getPaginas() {
         return this.paginas;
@@ -115,7 +115,7 @@ public class Users implements java.io.Serializable {
         this.paginas = paginas;
     }
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "users", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "users", cascade = CascadeType.REMOVE)
     @JsonIgnore
     public Set<Jugador> getJugadors() {
         return this.jugadors;

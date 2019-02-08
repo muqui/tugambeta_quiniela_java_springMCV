@@ -864,8 +864,8 @@ public class QuinielaDaoImpl implements QuinielaDao {
                         int punto = miResultado.indexOf(oficial);
                         System.out.println("Los  resultado " + p.getIdpartidos() + " resultado oficial: " + p.getResultado());
                         // if(r.getResultado() == p.getResultado()){
-                       // if (r.getResultado().equalsIgnoreCase(p.getResultado())) {
-                       if (punto >= 0){
+                        // if (r.getResultado().equalsIgnoreCase(p.getResultado())) {
+                        if (punto >= 0) {
                             aciertos = aciertos + 1;
                             System.out.println("Aciertos de " + j.getJugador() + "Total  " + aciertos);
                         }
@@ -884,10 +884,14 @@ public class QuinielaDaoImpl implements QuinielaDao {
         }
     }
 
+   
+
     @Override
     public void eliminarGrupo(String nombre) {
-        Users grupo = findByUserName(nombre);
+        Pagina grupo = getPagina(nombre);
+        Users user = findByUserName(nombre);
         Session session = this.sessionFactory.getCurrentSession();
-        //session.delete(grupo);
+        session.delete(grupo);
+        session.delete(user);
     }
 }
