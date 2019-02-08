@@ -167,6 +167,7 @@
 
                         </form:form>
                     </c:if>
+                            <!--
                     <h3>Tabla General ${nombreliga}</h3>
                     <table class="table footable">  
                         <thead>
@@ -204,6 +205,7 @@
                             </c:forEach>  
                         </tbody>
                     </table>  
+                    -->
                     <%--participantes --%>
                     <c:if test="${fn:length(participantes) > 0 }">
 

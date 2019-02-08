@@ -61,14 +61,23 @@ public class QuinielaDaoImpl implements QuinielaDao {
      */
     public List<Partidos> getPartidos() {
         Pagina pagina = getPagina();
-        int actual = pagina.getActual();
+        int actual = -10;
+        if(pagina != null)
+         actual = pagina.getActual();
+        
         System.out.println("Pagina selecccionasda partidos 02/01/2018   ID ::::::::::::::::::::::::::::::::::: " + actual);
         Session session = this.sessionFactory.getCurrentSession();
         Query query = session.createQuery("FROM Partidos as p  WHERE p.quiniela.idquiniela = :id");
 
         query.setParameter("id", actual);
         List<Partidos> list = query.list();
-        return list;
+
+        if (list.size() > 0) {
+            return list;
+        } else {
+            System.out.println("ES NULL  000000000000000000000000000000000000000000000000000000000000000000");
+            return null;
+        }
     }
 
     public Pagina getPagina() {
@@ -76,9 +85,15 @@ public class QuinielaDaoImpl implements QuinielaDao {
         Query query = session.createQuery("FROM Pagina as p WHERE p.tipo= :tipo ");
         query.setParameter("tipo", "q_ligamx");
         List<?> list = query.list();
-        Pagina u = (Pagina) list.get(0);
+       
 
-        return u;
+        if (list.size() > 0) {
+             Pagina u = (Pagina) list.get(0);
+            return u;
+        } else {
+            return null;
+        }
+
     }
 
     public int jugar(Jugador jugador, String userId) {
@@ -179,7 +194,11 @@ public class QuinielaDaoImpl implements QuinielaDao {
         Query query = session.createQuery("FROM Partidos as p  WHERE p.quiniela.idquiniela = :id");
         query.setParameter("id", actual);
         List<Partidos> list = query.list();
-        return list;
+        if (list.size() > 0) {
+            return list;
+        } else {
+            return null;
+        }
     }
 
     public boolean isSubpagina(Pagina pagina) {
@@ -883,8 +902,6 @@ public class QuinielaDaoImpl implements QuinielaDao {
 
         }
     }
-
-   
 
     @Override
     public void eliminarGrupo(String nombre) {

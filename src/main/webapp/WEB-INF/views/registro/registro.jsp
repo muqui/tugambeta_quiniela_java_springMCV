@@ -32,7 +32,7 @@
 
                 <p id="profile-name" class="profile-name-card">Registro</p>
                 <c:url var="saveuser" value="/saveuser" />
-                <form:form class="form-signin"  method="POST" action="${saveuser}" modelAttribute="user" id="adduser">
+                <form:form class="form-signin"  method="POST" action="${saveuser}" modelAttribute="user" id="adduserx">
                     <input type="text"  name="username"   id="username" placeholder="nombre" class="form-control"/>
                     <input type="text"  name="email" id="email" placeholder="correo " class="form-control"/>
                     <input type="password"  name="password" id="password"  placeholder="Contraseña" class="form-control"/>

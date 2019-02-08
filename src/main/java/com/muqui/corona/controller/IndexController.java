@@ -36,46 +36,46 @@ public class IndexController {
 
     @Autowired
     QuinielaService quinielaService;
-     List<List<String>> totalParticipantesG  = null;
+    List<List<String>> totalParticipantesG = null;
 
     @RequestMapping(value = {"/"}, method = RequestMethod.GET)
-    public String crearQuiniela(ModelMap model , HttpSession session) {
+    public String crearQuiniela(ModelMap model, HttpSession session) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName(); //get logged in username
+        System.out.println("Nombre indexxxxxxxxxxxxxxxxxxxxx >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + name);
         model.addAttribute("jugador", new Jugador());
         //  model.addAttribute("partidos", quinielaService.getPartidos());
 
         List<Partidos> partidos = quinielaService.getPartidos(name);
+        System.out.println("Lista indexxxxxxxxxxxxxxxxxxxxx >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + partidos);
 
-        if (partidos.size() == 0) {
-            model.addAttribute("partidos", quinielaService.getPartidos());
-            model.addAttribute("pagina", quinielaService.getPagina());
-        } else {
-            model.addAttribute("partidos", partidos);
-            model.addAttribute("pagina", quinielaService.getPagina(name));
-            
-              
-            //participantes
-            
-             session.setAttribute("userId", name);
-        System.out.println("Nombre: " + name);
-        Pagina p = quinielaService.getPagina(name);
-        model.addAttribute("userId", name);
+      //  if (partidos != null) {
+            if (partidos == null) {
+                model.addAttribute("partidos", quinielaService.getPartidos());
+                model.addAttribute("pagina", quinielaService.getPagina());
+            } else {
+                model.addAttribute("partidos", partidos);
+                model.addAttribute("pagina", quinielaService.getPagina(name));
 
-        totalParticipantesG = quinielaService.getParticipantesSinLogin(p.getActual(), name);
-        model.addAttribute("participantes", totalParticipantesG);
-        model.addAttribute("partidos", quinielaService.getPartidos(name));
-            
-            //end participantes
-             
+                //participantes
+                session.setAttribute("userId", name);
+                System.out.println("Nombre: " + name);
+                Pagina p = quinielaService.getPagina(name);
+                model.addAttribute("userId", name);
 
-            System.out.println("PARTICIPANTETES  ###################################################################################################" + totalParticipantesG);
+                totalParticipantesG = quinielaService.getParticipantesSinLogin(p.getActual(), name);
+                model.addAttribute("participantes", totalParticipantesG);
+                model.addAttribute("partidos", quinielaService.getPartidos(name));
 
-        }
+                //end participantes
+                System.out.println("PARTICIPANTETES  ###################################################################################################" + totalParticipantesG);
 
-        model.addAttribute("tablageneral", quinielaService.getTablaGeneral());
-        model.addAttribute("nombreliga", quinielaService.getnombreliga());
-     
+            }
+          //  model.addAttribute("tablageneral", quinielaService.getTablaGeneral());
+          //  model.addAttribute("nombreliga", quinielaService.getnombreliga());
+         // model.addAttribute("nombreliga", "");
+       // }
+
         return "index";
     }
 
@@ -110,16 +110,13 @@ public class IndexController {
 //            String redirectUrl = "quiniela/pruebas";
 //            return "redirect:" + redirectUrl;
 //        }
-        if (role.equalsIgnoreCase("ROLE_ADMIN") ) {
+        if (role.equalsIgnoreCase("ROLE_ADMIN")) {
             System.out.println("ROLE_ADMIN ");
             return "redirect:/admin";
-        } else
-            
-        if (role.equalsIgnoreCase("ROLE_ADMIN_GRUPO") ) {
+        } else if (role.equalsIgnoreCase("ROLE_ADMIN_GRUPO")) {
             System.out.println("ROLE_ADMIN_GRUPO ");
             return "redirect:/admingrupo";
-        }
-        else {
+        } else {
             return "redirect:/";
         }
 
@@ -133,7 +130,7 @@ public class IndexController {
 
     @RequestMapping(value = "/guardar", method = RequestMethod.GET)
     public String save(@ModelAttribute("jugador") @Valid Jugador jugador, BindingResult bindingResult, HttpSession session, ModelMap model) {
-          for (Partidos p : jugador.getQuiniela().getPartidoses()) {
+        for (Partidos p : jugador.getQuiniela().getPartidoses()) {
             System.out.println("Local PIEDADgod " + p.getLocal());
             System.out.println("Visitante PIEDADdog " + p.getVisitante());
             System.out.println("Resultado PIEDAD " + p.getResultado());
@@ -146,12 +143,12 @@ public class IndexController {
         Users usuario = quinielaService.findByUserName(username);
 
         for (UserRoles p : usuario.getUserRoleses()) {
-            System.out.println("ROLE xaxaxaaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxax__________xxxxxxxxxxxxxxx__________12121212121212121212121212121221212122121 " + p.getRole()+ " uusaio " + usuario.getUsername());
+            System.out.println("ROLE xaxaxaaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxax__________xxxxxxxxxxxxxxx__________12121212121212121212121212121221212122121 " + p.getRole() + " uusaio " + usuario.getUsername());
             role = p.getRole();
 
         }
 
-        Pagina pagina =  quinielaService.getPagina(usuario.getUsername());//quinielaService.getPagina();
+        Pagina pagina = quinielaService.getPagina(usuario.getUsername());//quinielaService.getPagina();
         String error2y3 = "";
         int limiteDobles = Integer.parseInt(pagina.getDobles());
         int limiteTriples = Integer.parseInt(pagina.getTriples());
