@@ -68,7 +68,7 @@ public class RegistroController {
             loginAutomatico(user);
             res.setValidated(true);
             res.setResult(user);
-            res.setRedirectUrl("http://localhost:8080/admingrupo");
+            res.setRedirectUrl("/admingrupo");
         } else {
             res.setValidated(false);
             res.setResult(result.getAllErrors());
