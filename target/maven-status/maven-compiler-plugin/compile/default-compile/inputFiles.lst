@@ -30,6 +30,7 @@ L:\RESPALDOS\PROGRAMACION\Proyecto_tugambeta_multiquiniela_y_Estadistica\tugambe
 L:\RESPALDOS\PROGRAMACION\Proyecto_tugambeta_multiquiniela_y_Estadistica\tugambeta_quinielas_dobles_triples_gitHub\src\main\java\com\muqui\corona\model\EstadisticaPartido.java
 L:\RESPALDOS\PROGRAMACION\Proyecto_tugambeta_multiquiniela_y_Estadistica\tugambeta_quinielas_dobles_triples_gitHub\src\main\java\com\muqui\corona\model\Jugador.java
 L:\RESPALDOS\PROGRAMACION\Proyecto_tugambeta_multiquiniela_y_Estadistica\tugambeta_quinielas_dobles_triples_gitHub\src\main\java\com\muqui\corona\model\UserRoles.java
+L:\RESPALDOS\PROGRAMACION\Proyecto_tugambeta_multiquiniela_y_Estadistica\tugambeta_quinielas_dobles_triples_gitHub\src\main\java\com\muqui\corona\service\ValidatorRegistro.java
 L:\RESPALDOS\PROGRAMACION\Proyecto_tugambeta_multiquiniela_y_Estadistica\tugambeta_quinielas_dobles_triples_gitHub\src\main\java\com\muqui\corona\configuration\AppInitializer.java
 L:\RESPALDOS\PROGRAMACION\Proyecto_tugambeta_multiquiniela_y_Estadistica\tugambeta_quinielas_dobles_triples_gitHub\src\main\java\com\muqui\corona\controller\LoginController.java
 L:\RESPALDOS\PROGRAMACION\Proyecto_tugambeta_multiquiniela_y_Estadistica\tugambeta_quinielas_dobles_triples_gitHub\src\main\java\com\muqui\corona\service\MailComponent.java
@@ -41,3 +42,4 @@ L:\RESPALDOS\PROGRAMACION\Proyecto_tugambeta_multiquiniela_y_Estadistica\tugambe
 L:\RESPALDOS\PROGRAMACION\Proyecto_tugambeta_multiquiniela_y_Estadistica\tugambeta_quinielas_dobles_triples_gitHub\src\main\java\com\muqui\corona\model\Partidos.java
 L:\RESPALDOS\PROGRAMACION\Proyecto_tugambeta_multiquiniela_y_Estadistica\tugambeta_quinielas_dobles_triples_gitHub\src\main\java\com\muqui\corona\dao\EstadisticaDao.java
 L:\RESPALDOS\PROGRAMACION\Proyecto_tugambeta_multiquiniela_y_Estadistica\tugambeta_quinielas_dobles_triples_gitHub\src\main\java\com\muqui\corona\service\EstadisticasService.java
+L:\RESPALDOS\PROGRAMACION\Proyecto_tugambeta_multiquiniela_y_Estadistica\tugambeta_quinielas_dobles_triples_gitHub\src\main\java\com\muqui\corona\service\JsonResponse.java

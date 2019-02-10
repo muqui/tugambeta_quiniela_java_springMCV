@@ -5,22 +5,26 @@
  */
 package com.muqui.corona.controller;
 
-import com.muqui.corona.model.UserRoles;
 import com.muqui.corona.model.Users;
+import com.muqui.corona.service.JsonResponse;
 import com.muqui.corona.service.QuinielaService;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import com.muqui.corona.service.ValidatorRegistro;
+import java.util.Map;
+import java.util.stream.Collectors;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ValidationUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -45,29 +49,35 @@ public class RegistroController {
 
     @RequestMapping(value = {"/registro"}, method = RequestMethod.GET)
     public String crearQuiniela(ModelMap model) {
-        model.addAttribute("user", new Users());
-        //  return "userregistro";
+        
         return "registro/registro";
     }
 
-    @RequestMapping(value = "/saveuser", method = RequestMethod.POST)
-    public String save(@ModelAttribute("user") Users user, ModelMap model, HttpServletRequest request, HttpSession session) {
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String hashedPassword = passwordEncoder.encode(user.getPassword());
-        System.out.println("hashedPassword " + hashedPassword);
-        user.setPassword(hashedPassword);
-        model.addAttribute("user", user);
-        user.setEnabled(true);
-        user.setPaginas(null);
-        user.setUserRoleses(null);
-        quinielaService.addUser(user);
-        loginAutomatico(user);
-        session.setAttribute("role", "ROLE_ADMIN_GRUPO");
-        String redirectUrl = "admingrupo";
-        return "redirect:" + redirectUrl;
-        // return "userregistrado";
+    @RequestMapping(value = "/saveuser", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @ResponseBody
+    public JsonResponse addUser(@ModelAttribute @Valid Users user, BindingResult result) {
+        ValidatorRegistro validatorRegistro = new ValidatorRegistro();
+        boolean correo = quinielaService.getEmail(user.getEmail().trim());
+        boolean username = quinielaService.getUusername(user.getUsername().trim());
+        validatorRegistro.setCorreo(correo);
+        validatorRegistro.setUsername(username);
+        validatorRegistro.validate(user, result);
+        JsonResponse res = new JsonResponse();
+        if (!result.hasErrors()) {
+            quinielaService.addUser(user);
+            res.setValidated(true);
+            res.setResult(user);
+        } else {
+            res.setValidated(false);
+            res.setResult(result.getAllErrors());
+        }
+
+        return res;
     }
 
+
+  
+    
     @RequestMapping(value = "/availableemailrecuperar", method = RequestMethod.GET)
     @ResponseBody
     public String availableEmail(@RequestParam String email) {

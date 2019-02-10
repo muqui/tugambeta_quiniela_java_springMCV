@@ -911,4 +911,36 @@ public class QuinielaDaoImpl implements QuinielaDao {
         session.delete(grupo);
         session.delete(user);
     }
+
+     @Override
+    public boolean getEmail(String email) {
+        Session session = this.sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from Users where email= :email ");
+        query.setParameter("email", email);
+        List<?> list = query.list();
+
+        if (list.size() > 0) {
+            System.out.println("true");
+            return false;
+        } else {
+            System.out.println("false");
+            return true;
+        }
+    }
+
+    @Override
+    public boolean getUusername(String username) {
+         Session session = this.sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from Users where username= :username ");
+        query.setParameter("username", username);
+        List<?> list = query.list();
+
+        if (list.size() > 0) {
+            System.out.println("true");
+            return false;
+        } else {
+            System.out.println("false");
+            return true;
+        }
+    }
 }

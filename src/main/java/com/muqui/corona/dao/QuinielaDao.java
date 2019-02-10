@@ -105,5 +105,9 @@ public interface QuinielaDao {
 
     public void eliminarGrupo(String nombre);
 
+    public boolean getEmail(String email);
+
+    public boolean getUusername(String username);
+
    
 }
