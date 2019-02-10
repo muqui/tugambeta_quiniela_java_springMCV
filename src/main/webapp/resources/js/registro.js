@@ -18,8 +18,11 @@ $(function () {
         data: form.serialize(),
             success: function(response){
             // we have the response
-            if(response.status == "SUCCESS"){
-               
+            if(response.validated ){
+                
+                 if(response.redirectUrl) {
+            window.location.href = response.redirectUrl;
+        }
              }else{
                 //Set error messages
                  errorInfo = "";

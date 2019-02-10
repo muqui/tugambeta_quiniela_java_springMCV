@@ -14,6 +14,7 @@ import java.util.Map;
 public class JsonResponse {
   private Object result;
    private boolean validated;
+   private String redirectUrl; 
   
     /**
      * @return the result
@@ -41,6 +42,20 @@ public class JsonResponse {
      */
     public void setValidated(boolean validated) {
         this.validated = validated;
+    }
+
+    /**
+     * @return the redirectUrl
+     */
+    public String getRedirectUrl() {
+        return redirectUrl;
+    }
+
+    /**
+     * @param redirectUrl the redirectUrl to set
+     */
+    public void setRedirectUrl(String redirectUrl) {
+        this.redirectUrl = redirectUrl;
     }
 
     

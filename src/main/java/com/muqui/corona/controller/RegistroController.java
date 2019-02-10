@@ -65,8 +65,10 @@ public class RegistroController {
         JsonResponse res = new JsonResponse();
         if (!result.hasErrors()) {
             quinielaService.addUser(user);
+            loginAutomatico(user);
             res.setValidated(true);
             res.setResult(user);
+            res.setRedirectUrl("http://localhost:8080/admingrupo");
         } else {
             res.setValidated(false);
             res.setResult(result.getAllErrors());
