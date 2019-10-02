@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -65,10 +66,17 @@ public class RegistroController {
         JsonResponse res = new JsonResponse();
         if (!result.hasErrors()) {
             quinielaService.addUser(user);
-            loginAutomatico(user);
+            
+            String role  = loginAutomatico(user);
             res.setValidated(true);
             res.setResult(user);
-            res.setRedirectUrl("/admingrupo");
+            if(role.equals("ROLE_ADMIN")){
+                 res.setRedirectUrl("/admin");
+            }else{
+                 res.setRedirectUrl("/admingrupo");
+            }
+                
+           
         } else {
             res.setValidated(false);
             res.setResult(result.getAllErrors());
@@ -104,16 +112,27 @@ public class RegistroController {
         return available.toString();
     }
 
-    public void loginAutomatico(Users user) {
-
+    /**
+     *
+     * @param user
+     * @return Una ves registra, este metodo realiza un auto logeo, y regresa el tipo de role
+     */
+    public String loginAutomatico(Users user) {
+        String role = "";
         String username = user.getUsername();
         String password2 = user.getPasswordConfirm();
+        System.out.println("pass login automatico " +  password2);
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+         for (GrantedAuthority auth : userDetails.getAuthorities()) {          
+            role = auth.getAuthority();
+        }
+        
         UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(userDetails, password2, userDetails.getAuthorities());
         authenticationManager.authenticate(auth);
         if (auth.isAuthenticated()) {
             SecurityContextHolder.getContext().setAuthentication(auth);
         }
+        return role;
 
     }
 }

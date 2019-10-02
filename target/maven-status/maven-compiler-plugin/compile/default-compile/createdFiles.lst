@@ -25,6 +25,7 @@ com\muqui\corona\service\QuinielaServiceImpl.class
 com\muqui\corona\model\EstadisticaEquipo.class
 com\muqui\corona\model\Partidos.class
 com\muqui\corona\dao\QuinielaDaoImpl.class
+com\muqui\corona\service\JsonResponse.class
 com\muqui\corona\service\FechaLimite.class
 com\muqui\corona\controller\AdminController.class
 com\muqui\corona\controller\JugadorController.class
@@ -34,6 +35,7 @@ com\muqui\corona\model\Pagina.class
 com\muqui\corona\controller\EstadisticaControllador.class
 com\muqui\corona\model\Contact.class
 com\muqui\corona\configuration\SecurityConfig.class
+com\muqui\corona\service\ValidatorRegistro.class
 com\muqui\corona\service\EstadisticasService.class
 com\muqui\corona\model\Liga.class
 com\muqui\corona\service\CustomAuthenticationManager.class

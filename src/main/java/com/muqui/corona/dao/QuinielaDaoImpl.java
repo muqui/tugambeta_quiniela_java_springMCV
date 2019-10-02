@@ -62,9 +62,10 @@ public class QuinielaDaoImpl implements QuinielaDao {
     public List<Partidos> getPartidos() {
         Pagina pagina = getPagina();
         int actual = -10;
-        if(pagina != null)
-         actual = pagina.getActual();
-        
+        if (pagina != null) {
+            actual = pagina.getActual();
+        }
+
         System.out.println("Pagina selecccionasda partidos 02/01/2018   ID ::::::::::::::::::::::::::::::::::: " + actual);
         Session session = this.sessionFactory.getCurrentSession();
         Query query = session.createQuery("FROM Partidos as p  WHERE p.quiniela.idquiniela = :id");
@@ -85,10 +86,9 @@ public class QuinielaDaoImpl implements QuinielaDao {
         Query query = session.createQuery("FROM Pagina as p WHERE p.tipo= :tipo ");
         query.setParameter("tipo", "q_ligamx");
         List<?> list = query.list();
-       
 
         if (list.size() > 0) {
-             Pagina u = (Pagina) list.get(0);
+            Pagina u = (Pagina) list.get(0);
             return u;
         } else {
             return null;
@@ -333,7 +333,7 @@ public class QuinielaDaoImpl implements QuinielaDao {
 
     public void addGrupo(Users user) {
         System.out.println("user: " + user.getUsername() + "userpassa " + user.getPassword() + " tipo: " + user.getPasswordConfirm());
-        String tipoQuiniela = user.getPasswordConfirm();
+        String tipoQuiniela = user.getTipoPaguina();
         Pagina p = getPaginaTipo(tipoQuiniela);
 
         System.out.println("xxxeee " + p);
@@ -601,15 +601,54 @@ public class QuinielaDaoImpl implements QuinielaDao {
         }
     }
 
+    /**
+     *
+     * @param user
+     * Crea usuarios nuevo, el primer usuario creado se crea con privilegios de administrador, los siguientes como usuarios.
+     */
+    @Override
     public void addUser(Users user) {
+        //Encripta la contraseña
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String hashedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(hashedPassword);
+
+        //setea la propiedad enable en true
+        user.setEnabled(true);
+
         Session session = this.sessionFactory.openSession();
         session.beginTransaction();
         session.save(user);
-        session.save(new UserRoles(user, "ROLE_ADMIN_GRUPO"));
+        if (userList() == null) {
+            //El primer usuario se crea con privilegios de administrador
+             session.save(new UserRoles(user, "ROLE_ADMIN"));
+        } else {
+             session.save(new UserRoles(user, "ROLE_ADMIN_GRUPO"));
+        }
+      
         // session.save(new Pagina(user, user.getPagina(), 0, "quiniela", null, null));
 
         session.getTransaction().commit();
-        System.out.println("user name " + user.getUsername());
+        System.out.println("user name " + user.getUsername() + "mas password " + user.getPassword());
+    }
+
+    /**
+     *
+     * @return regresa la lista de usuarios
+     */
+    public List<Users> userList() {
+
+        Session session = this.sessionFactory.getCurrentSession();
+        Query query = session.createQuery("FROM Users");
+
+        List<Users> list = query.list();
+
+        if (list.size() > 0) {
+            return list;
+        } else {
+
+            return null;
+        }
     }
 
     public Users findByUserEmail(String email) {
@@ -912,7 +951,7 @@ public class QuinielaDaoImpl implements QuinielaDao {
         session.delete(user);
     }
 
-     @Override
+    @Override
     public boolean getEmail(String email) {
         Session session = this.sessionFactory.getCurrentSession();
         Query query = session.createQuery("from Users where email= :email ");
@@ -930,7 +969,7 @@ public class QuinielaDaoImpl implements QuinielaDao {
 
     @Override
     public boolean getUusername(String username) {
-         Session session = this.sessionFactory.getCurrentSession();
+        Session session = this.sessionFactory.getCurrentSession();
         Query query = session.createQuery("from Users where username= :username ");
         query.setParameter("username", username);
         List<?> list = query.list();

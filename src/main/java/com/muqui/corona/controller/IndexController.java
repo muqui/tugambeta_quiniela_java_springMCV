@@ -42,20 +42,22 @@ public class IndexController {
     public String crearQuiniela(ModelMap model, HttpSession session) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName(); //get logged in username
-        System.out.println("Nombre indexxxxxxxxxxxxxxxxxxxxx >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + name);
+       
         model.addAttribute("jugador", new Jugador());
         //  model.addAttribute("partidos", quinielaService.getPartidos());
 
         List<Partidos> partidos = quinielaService.getPartidos(name);
-        System.out.println("Lista indexxxxxxxxxxxxxxxxxxxxx >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + partidos);
+        Pagina pagina;
 
       //  if (partidos != null) {
             if (partidos == null) {
                 model.addAttribute("partidos", quinielaService.getPartidos());
-                model.addAttribute("pagina", quinielaService.getPagina());
+                pagina = quinielaService.getPagina();
+               // model.addAttribute("pagina", quinielaService.getPagina());
             } else {
                 model.addAttribute("partidos", partidos);
-                model.addAttribute("pagina", quinielaService.getPagina(name));
+                pagina = quinielaService.getPagina(name);
+               // model.addAttribute("pagina", );
 
                 //participantes
                 session.setAttribute("userId", name);
@@ -68,9 +70,11 @@ public class IndexController {
                 model.addAttribute("partidos", quinielaService.getPartidos(name));
 
                 //end participantes
-                System.out.println("PARTICIPANTETES  ###################################################################################################" + totalParticipantesG);
+               
 
             }
+            model.addAttribute("pagina",pagina);
+      //      System.out.println("xdrsdsdff " +  pagina.getNombre());
           //  model.addAttribute("tablageneral", quinielaService.getTablaGeneral());
           //  model.addAttribute("nombreliga", quinielaService.getnombreliga());
          // model.addAttribute("nombreliga", "");
@@ -130,6 +134,7 @@ public class IndexController {
 
     @RequestMapping(value = "/guardar", method = RequestMethod.GET)
     public String save(@ModelAttribute("jugador") @Valid Jugador jugador, BindingResult bindingResult, HttpSession session, ModelMap model) {
+        System.out.println(""+ jugador.getQuiniela());
         for (Partidos p : jugador.getQuiniela().getPartidoses()) {
             System.out.println("Local PIEDADgod " + p.getLocal());
             System.out.println("Visitante PIEDADdog " + p.getVisitante());

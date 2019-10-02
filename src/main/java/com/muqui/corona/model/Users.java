@@ -35,6 +35,7 @@ public class Users implements java.io.Serializable {
     private Set<Jugador> jugadors = new HashSet<Jugador>(0);
 
     private String passwordConfirm;
+    private String tipoPaguina; 
     private String pagina;
 
     public Users() {
@@ -55,7 +56,7 @@ public class Users implements java.io.Serializable {
     }
 
     @Id
-    @NotNull
+    
     @Column(name = "username", unique = true, nullable = false, length = 45)
     public String getUsername() {
         return this.username;
@@ -66,7 +67,7 @@ public class Users implements java.io.Serializable {
     }
 
     @Column(name = "password", length = 60)
-    @NotNull
+    
     public String getPassword() {
         return this.password;
     }
@@ -76,7 +77,7 @@ public class Users implements java.io.Serializable {
     }
 
     @Column(name = "email", length = 60)
-    @NotNull
+    
     public String getEmail() {
         return email;
     }
@@ -85,7 +86,7 @@ public class Users implements java.io.Serializable {
         this.email = email;
     }
 
-    @NotNull
+    
     @Column(name = "enabled", nullable = false)
     public boolean isEnabled() {
         return this.enabled;
@@ -154,5 +155,20 @@ public class Users implements java.io.Serializable {
      */
     public void setPagina(String pagina) {
         this.pagina = pagina;
+    }
+
+    /**
+     * @return the tipoPaguina
+     */
+    @Transient
+    public String getTipoPaguina() {
+        return tipoPaguina;
+    }
+
+    /**
+     * @param tipoPaguina the tipoPaguina to set
+     */
+    public void setTipoPaguina(String tipoPaguina) {
+        this.tipoPaguina = tipoPaguina;
     }
 }

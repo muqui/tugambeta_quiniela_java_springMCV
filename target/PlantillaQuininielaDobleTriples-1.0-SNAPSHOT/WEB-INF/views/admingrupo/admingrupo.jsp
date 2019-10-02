@@ -17,61 +17,6 @@ src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         <title>${userId}</title>
 
 
-        <script>
-            $(document).ready(function () {
-                $("#adduser").validate(
-                        {
-                            rules: {
-                                username: {
-                                    required: true,
-                                    minlength: 5,
-                                    remote: {
-                                        url: "/availablegroup.html",
-                                        type: "get",
-                                        data: {
-                                            username: function () {
-                                                return $("#username").val();
-                                            }
-                                        }
-                                    }
-                                },
-
-                                password: {
-                                    required: true,
-                                    minlength: 5
-                                }
-                            },
-                            messages: {
-                                username: {
-                                    required: "Nombre es requerido",
-                                    minlength: "Capture al menos 5 caracteres",
-                                    remote: "Nombre de GRUPO NO disponible!"
-                                },
-
-                                password: {
-                                    required: "Contraseña es requerido",
-                                    minlength: "Capture al menos 5 caracteres"
-                                }
-
-
-                            },
-                            highlight: function (element) {
-                                $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
-                            },
-                            unhighlight: function (element) {
-                                $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
-                            }
-
-                        }
-
-
-                );
-
-            });
-
-
-
-        </script>
 
 
 
@@ -93,22 +38,23 @@ src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
                  <p id="profile-name" class="profile-name-card">Crear Grupo</p>
             
               
-                      <c:url var="jugar" value="/creargrupo" />
-                <form:form method="POST" class="form-signin" action="${jugar}" modelAttribute="jugador" id="registerform" onsubmit="return validarFormulario()">
+                     
+                       <script src="resources/js/creargrupo.js"></script>  
+                <form:form method="POST" class="form-signin"  modelAttribute="jugador" id="addGroup" >
 
 
                    
                      <p>Grupo:*</p>
                     <input type="text"  name="username"   id="username" placeholder="Grupo" class="form-control"/><br>
                     <p>Tipo:*</p>
-                    <select name="passwordConfirm" class="form-control">
+                    <select name="tipoPaguina" class="form-control">
                         <option value="q_ligamx" selected >Liga mx</option> 
                         <option value="q_personal" >personalizada</option>              
                     </select> <br>   
                     <p>Contraseña:*</p>
                     <input type="text"  name="password" id="password" placeholder="contraseña " class="form-control"/> <br>
 
-                    <input type="submit"  class="btn btn-lg btn-primary btn-block btn-signin" value="Enviar"/>
+                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Crear</button>
                     <input type="hidden" name="${_csrf.parameterName}"
                            value="${_csrf.token}" />
 

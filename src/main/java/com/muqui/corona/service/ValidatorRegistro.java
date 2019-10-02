@@ -60,8 +60,8 @@ public class ValidatorRegistro  implements Validator  {
              errors.rejectValue("username", "ingresa tu nombre.", "Campo vacio");
         }
         //valida longitud del usuario
-        if(users.getUsername().length() > 0 && users.getUsername().length() < 6){
-             errors.rejectValue("username", "Longitud no validad", "longitud no valida");
+        if(users.getUsername().length() > 0 && users.getUsername().length() < 5){
+             errors.rejectValue("username", "Longitud no valida", "longitud no valida");
         }
        
         

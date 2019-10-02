@@ -9,7 +9,9 @@ import com.muqui.corona.model.Pagina;
 import com.muqui.corona.model.Partidos;
 import com.muqui.corona.model.Quiniela;
 import com.muqui.corona.model.Users;
+import com.muqui.corona.service.JsonResponse;
 import com.muqui.corona.service.QuinielaService;
+import com.muqui.corona.service.ValidatorRegistro;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,12 +22,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -68,14 +73,14 @@ public class AdminGrupoController {
         return "admingrupo/admingrupoquiniela";
 
     }
-    
-              @RequestMapping(value = "/admingrupo/doblesytriples**", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/admingrupo/doblesytriples**", method = RequestMethod.GET)
     public String dobleytriples(ModelMap model, HttpSession session, @RequestParam String id) {
 
         session.setAttribute("sessionIDPagina", id);
         int idPagina = Integer.parseInt(id);
-       
-          model.addAttribute("pagina",  quinielaService.getPagina(idPagina));
+
+        model.addAttribute("pagina", quinielaService.getPagina(idPagina));
         return "admingrupo/doblesytriples";
 
     }
@@ -145,6 +150,7 @@ public class AdminGrupoController {
 
     }
 //
+
     @RequestMapping("/admingrupo/quinielas")
     public String editar(@ModelAttribute Quiniela quiniela, ModelMap model, HttpSession session) {
         String idGrupo = session.getAttribute("sessionIDPagina").toString();
@@ -165,11 +171,10 @@ public class AdminGrupoController {
 
     @RequestMapping(value = "/admingrupo/resultados**", method = RequestMethod.GET)
     public String crearQuiniela(ModelMap model, HttpSession session, HttpServletRequest request, @RequestParam(value = "f", required = false) String flush, @RequestParam(value = "message", required = false) String message) {
-      
 
         String idGrupo = session.getAttribute("sessionIDPagina").toString();
-       model.addAttribute("partidos", quinielaService.getPartidosIdGrupo(idGrupo));
-       
+        model.addAttribute("partidos", quinielaService.getPartidosIdGrupo(idGrupo));
+
         return "admingrupo/admingruporesultados";
 
     }
@@ -234,43 +239,45 @@ public class AdminGrupoController {
             Timestamp timeStampDate = new Timestamp(d.getTime());
             quiniela.setFechaLimite(timeStampDate);
         } catch (ParseException ex) {
-           // Logger.getLogger(QuinielaController.class.getName()).log(Level.SEVERE, null, ex);
+            // Logger.getLogger(QuinielaController.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
+
         int idGrupo = Integer.parseInt(session.getAttribute("sessionIDPagina").toString());
         quinielaService.updatequiniela(quiniela, idGrupo);
 
         return "redirect:/admingrupo/quinielas";
     }
 
-     @RequestMapping("/admingrupo/formulariocambiarclavegrupo")
-    public String formChangePassword( ModelMap model, HttpSession session , @RequestParam String nombre) {
-      
-        Users user = quinielaService.findByUserName(nombre);            
-          model.addAttribute("user",  user);
+    @RequestMapping("/admingrupo/formulariocambiarclavegrupo")
+    public String formChangePassword(ModelMap model, HttpSession session, @RequestParam String nombre) {
+
+        Users user = quinielaService.findByUserName(nombre);
+        model.addAttribute("user", user);
         return "/admingrupo/cambiarClave";
     }
-      @RequestMapping("/admingrupo/cambiarclave")
+
+    @RequestMapping("/admingrupo/cambiarclave")
     public String ChangePassword(@ModelAttribute Users user, ModelMap model, HttpSession session) {
-          System.out.println("usexeeew " + user.getUsername() + "  " + user.getPassword()  +  user.isEnabled());
+        System.out.println("usexeeew " + user.getUsername() + "  " + user.getPassword() + user.isEnabled());
         quinielaService.updateUser(user);
         return "redirect:/admingrupo";
     }
-       @RequestMapping("/admingrupo/formchangepassword")
+
+    @RequestMapping("/admingrupo/formchangepassword")
     public String formchangepassword(ModelMap model) {
         Users user = quinielaService.findByUserName(getUserActual());
         model.addAttribute("user", user);
         return "admingrupo/formchangepassword";
 
     }
-           @RequestMapping("/admingrupo/cambiardoblesytriples")
+
+    @RequestMapping("/admingrupo/cambiardoblesytriples")
     public String cambiardoblesytriples(@ModelAttribute Pagina pagina, ModelMap model, HttpSession session) {
-          
+
         //quinielaService.updateUser(user);
         quinielaService.updatePagina(pagina);
         return "redirect:/admingrupo";
     }
-
 
     @RequestMapping("/admingrupo/changepassword")
     public String changepassword(@ModelAttribute Users user, ModelMap model) {
@@ -280,7 +287,7 @@ public class AdminGrupoController {
         return "redirect:/admingrupo";
 
     }
-    
+
     public String getUserActual() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
@@ -295,26 +302,58 @@ public class AdminGrupoController {
         return available.toString();
     }
 
-    @RequestMapping(value = "/creargrupo", method = RequestMethod.POST)
-    public String addGrupo(@ModelAttribute("user") Users user, ModelMap model, HttpServletRequest request) {
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String hashedPassword = passwordEncoder.encode(user.getPassword());
-        System.out.println("hashedPassword " + hashedPassword);
-        user.setPassword(hashedPassword);
-        model.addAttribute("user", user);
-        user.setEmail("email");
+//    @RequestMapping(value = "/creargrupo", method = RequestMethod.POST)
+//    public String addGrupo(@ModelAttribute("user") Users user, ModelMap model, HttpServletRequest request) {
+//        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+//        String hashedPassword = passwordEncoder.encode(user.getPassword());
+//        System.out.println("hashedPassword " + hashedPassword);
+//        user.setPassword(hashedPassword);
+//        model.addAttribute("user", user);
+//        user.setEmail("email");
+//        user.setEnabled(true);
+//        user.setPaginas(null);
+//        user.setUserRoleses(null);
+//
+//        quinielaService.addGrupo(user);
+//        String redirectUrl = "admingrupo";
+//        return "redirect:" + redirectUrl;
+//      
+//    }
+    @RequestMapping(value = "/creargrupo", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @ResponseBody
+    public JsonResponse addUser(@ModelAttribute @Valid Users user, BindingResult result) {
+        user.setEmail("admin@tugambetamx.com");
         user.setEnabled(true);
         user.setPaginas(null);
+       
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String hashedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(hashedPassword);
+         user.setPasswordConfirm(user.getPassword());
         user.setUserRoleses(null);
+        System.out.println("C O R  R   E    0 : " + user.getEmail());
+        ValidatorRegistro validatorRegistro = new ValidatorRegistro();
+        // boolean correo = quinielaService.getEmail(true);
+        boolean username = quinielaService.getUusername(user.getUsername().trim());
+        validatorRegistro.setCorreo(true);
+        validatorRegistro.setUsername(username);
+        validatorRegistro.validate(user, result);
+        JsonResponse res = new JsonResponse();
+        if (!result.hasErrors()) {
+            res.setValidated(true);
+            res.setResult(user);
+            quinielaService.addGrupo(user);
+            res.setRedirectUrl("/admingrupo");
+        } else {
+            res.setValidated(false);
+            res.setResult(result.getAllErrors());
+        }
 
-        quinielaService.addGrupo(user);
-        String redirectUrl = "admingrupo";
-        return "redirect:" + redirectUrl;
-        // return "userregistrado";
+        return res;
     }
-    
-     @RequestMapping("/admingrupo/eliminargrupo")
-    public String eliminarGrupo( @RequestParam String id) {
+
+    @RequestMapping("/admingrupo/eliminargrupo")
+    public String eliminarGrupo(@RequestParam String id) {
         System.out.println("ELIMINAR GRUPO  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyy   = " + id);
         quinielaService.eliminarGrupo(id);
 
