@@ -39,7 +39,7 @@ public class MyUserDetailsService implements UserDetailsService {
 	
 		com.muqui.corona.model.Users user = dao.findByUserName(username);
 		List<GrantedAuthority> authorities = buildUserAuthority(user.getUserRoleses());
-
+            System.out.println("PERSona autorizada " + user.getPassword());
 		return buildUserForAuthentication(user, authorities);
 		
 	}

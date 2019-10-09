@@ -18,9 +18,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan({ "com.muqui.corona.configuration" })
+@ComponentScan({ "com.muqui." })
+//@PropertySource(value = { "classpath:application.properties" })
 @PropertySource(value = { "classpath:application_1.properties" })
-//@PropertySource(value = { "classpath:applicationheroku.properties" })
 public class HibernateConfiguration {
 
     @Autowired
