@@ -74,11 +74,7 @@ public class IndexController {
 
             }
             model.addAttribute("pagina",pagina);
-      //      System.out.println("xdrsdsdff " +  pagina.getNombre());
-          //  model.addAttribute("tablageneral", quinielaService.getTablaGeneral());
-          //  model.addAttribute("nombreliga", quinielaService.getnombreliga());
-         // model.addAttribute("nombreliga", "");
-       // }
+     
 
         return "index";
     }
@@ -96,24 +92,7 @@ public class IndexController {
 
         }
         session.setAttribute("role", role);
-//        if (role.equalsIgnoreCase("ROLE_ADMIN")) {
-//            System.out.println("ROLE_ADMIN ");
-//            return "redirect:admin";
-//        } else if (role.equalsIgnoreCase("ROLE_JUGADOR")) {
-//
-//            System.out.println("10/04/2017: " + username);
-//            String redirectUrl = "quiniela/" + username;
-//            System.out.println("Redireccionuqui " + redirectUrl);
-//            return "redirect:" + redirectUrl;
-//        } else if (role.equalsIgnoreCase("ROLE_ADMIN_GRUPO")) {
-//            System.out.println("ROLE_ADMIN_GRUPO ");
 
-//            return "redirect:admingrupo";
-//        } else {
-//            System.out.println("10/04/2017default: " + username);
-//            String redirectUrl = "quiniela/pruebas";
-//            return "redirect:" + redirectUrl;
-//        }
         if (role.equalsIgnoreCase("ROLE_ADMIN")) {
             System.out.println("ROLE_ADMIN ");
             return "redirect:/admin";
@@ -148,7 +127,6 @@ public class IndexController {
         Users usuario = quinielaService.findByUserName(username);
 
         for (UserRoles p : usuario.getUserRoleses()) {
-            System.out.println("ROLE xaxaxaaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxax__________xxxxxxxxxxxxxxx__________12121212121212121212121212121221212122121 " + p.getRole() + " uusaio " + usuario.getUsername());
             role = p.getRole();
 
         }
@@ -160,9 +138,7 @@ public class IndexController {
         int triples = 0;
         int dobles = 0;
         for (Partidos p : jugador.getQuiniela().getPartidoses()) {
-//            System.out.println("Local Please " + p.getLocal());
-//            System.out.println("Visitante Please " + p.getVisitante());
-//            System.out.println("Resultado xxxxtt " + p.getResultado());
+
             if (p.getResultado().length() == 3) {
                 dobles += 1;
             }
@@ -192,7 +168,7 @@ public class IndexController {
                 String redirectUrl = "quiniela/" + username + "/jugado";
                 System.out.println("Redireccionuqui " + redirectUrl);
 
-                //String vigente = String.valueOf(quinielaService.jugar(jugador, username));
+               
                 return "redirect:" + redirectUrl;
             } else if (role.equalsIgnoreCase("ROLE_ADMIN_GRUPO")) {
                 System.out.println("ROLE_ADMIN_GRUPO ");
