@@ -11,6 +11,7 @@ Database
 <H2> How to use it</H2>
 
 <p>When you open the web site for first time, you must register. the first account it will be ROLE_ADMIN </p>
+<br>
 ![alt text](https://github.com/muqui/tugambeta_quiniela_java_springMCV/blob/master/screenshots/image_1.jpg )
 
 <H2>
