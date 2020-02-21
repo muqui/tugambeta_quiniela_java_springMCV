@@ -7,9 +7,11 @@ This is  the game where you try to guess all results, you have three choises(win
 Database
 </H2>
 <p>This web page has been used with MYSQL and PostgreSQL. if database doesn't exists, Hibernate will create it  on MYSQL.</p>
+
 <H2> How to use it</H2>
 
 <p>When you open the web site for first time, you must register. the first account it will be ROLE_ADMIN </p>
+![image 1](https://github.com/muqui/tugambeta_quiniela_java_springMCV/blob/master/screenshots/image_1.jpg  "Login")
 <H2>
 Login
 </H2>
