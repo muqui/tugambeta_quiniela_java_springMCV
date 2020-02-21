@@ -12,11 +12,12 @@ Database
 
 <p>When you open the web site for first time, you must register. the first account it will be ROLE_ADMIN </p>
 
+![image 1](https://github.com/muqui/tugambeta_quiniela_java_springMCV/blob/master/screenshots/image_1.jpg  "Login")
 <H2>
 Login
 </H2>
 
-
+![alt text](https://github.com/muqui/tugambeta_quiniela_java_springMCV/blob/master/screenshots/login.png)
 <br>
 Registro
 <br>
