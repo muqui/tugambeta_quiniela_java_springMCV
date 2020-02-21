@@ -3,8 +3,9 @@
 TuGambeta  was development in java EE using Spring MVC, MySQL, Hibernate, bootstrap 4, Maven.
 This is  the game where you try to guess all results, you have three choises(win, lose, draw). Wins people that have more  successes
 </p>
-<br>
+<H1>
 Login
+</H1>
 <br>
 ![alt text](https://github.com/muqui/tugambeta_quiniela_java_springMCV/blob/master/screenshots/login.png)
 <br>
