@@ -1,6 +1,8 @@
 #TuGambeta guess the score - Java EE Spring MVC
+<p>
 TuGambeta  was development in java EE using Spring MVC, MySQL, Hibernate, bootstrap 4, Maven.
 This is  the game where you try to guess all results, you have three choises(win, lose, draw). Wins people that have more  successes
+</p>
 <br>
 Login
 <br>
