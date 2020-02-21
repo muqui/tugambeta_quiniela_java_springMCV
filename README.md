@@ -6,7 +6,7 @@ This is  the game where you try to guess all results, you have three choises(win
 <H1>
 Login
 </H1>
-<br>
+
 ![alt text](https://github.com/muqui/tugambeta_quiniela_java_springMCV/blob/master/screenshots/login.png)
 <br>
 Registro
