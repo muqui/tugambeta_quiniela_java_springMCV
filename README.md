@@ -1,5 +1,6 @@
-#Proyecto tugambeta es una pagiga web para jugar quinielas desarrollada en Spring MVC
-Tu gambeta esta probada con los servidores de base de datos de Mysql como Posgress.
+#TuGambeta guess the score - Java EE Spring MVC
+TuGambeta  was development in java EE using Spring MVC, MySQL, Hibernate, bootstrap 4, Maven.
+This is  the game where you try to guess all results, you have three choises(win, lose, draw). Wins people that have more  successes
 <br>
 Login
 <br>

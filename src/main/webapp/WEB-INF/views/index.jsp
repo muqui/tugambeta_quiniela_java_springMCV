@@ -17,9 +17,9 @@
     <tiles:putAttribute name="body">
         <div class="mt-sm-5">
             <div class="container">
-                <div class="container fuente-verde">
+                <div class="container fuente-verde inicio">
 
-                    <div >
+                    <div class = "">
                         <h3 >¿Que es  tugambeta?</h3>
                         <p  class="">Es un sitio web donde podrás retar a tus amigos, para saber quién sabe más acerca de futbol.
                             Para poder jugar registre crea un grupo y pásale a tus amigos el nombre de tu grupo  y la contraseña

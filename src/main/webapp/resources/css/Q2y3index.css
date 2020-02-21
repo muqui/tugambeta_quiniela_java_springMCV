@@ -14,7 +14,7 @@ body{
 }
 header{
     width: 100%;  
-    background: #7C9089;
+    background: #a3bfcb;
 
 }
 .logomenu{
@@ -142,7 +142,14 @@ input[type="radio"]:checked + label span ,  input[type="checkbox"]:checked + lab
     -moz-box-shadow: 0px 10px 14px -7px #d4b745;
     -webkit-box-shadow: 0px 10px 14px -7px #d4b745;
     box-shadow: 0px 10px 14px -7px #d4b745;
-    background-color:#dbb932;
+    -webkit-border-radius:8px;
+    border-radius:8px;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    background-color:red;
     -moz-border-radius:8px;
     -webkit-border-radius:8px;
     border-radius:8px;
@@ -248,7 +255,7 @@ p {
     text-decoration:underline;
 }
 .no-access a{
-    color:#E86850;
+    color:#a3bfcb;
     margin-left:-55%;
    margin-top: 50%;
     font-size: 15px;

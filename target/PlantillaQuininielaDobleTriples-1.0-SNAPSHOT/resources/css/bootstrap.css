@@ -42,12 +42,17 @@ body{
   }
 }
 .fuente-verde{
-    color: #053625;
+    color: #eee1ec;
     font-weight: bold;
+    
+}
+
+.inicio{
+    min-height: 520px;
 }
 .color-azul {
     
-     background-color: #E8E6E0; 
+     background-color: #0f515f; 
 }
 .tabla-jugar{
     width: 100%;
@@ -110,7 +115,7 @@ input[type="radio"]:checked + label span ,  input[type="checkbox"]:checked + lab
  * Card component
  */
 .card {
-    background-color: #F7F7F7;
+    background-color: #0f515f;
     /* just in case there no content*/
     padding: 20px 25px 30px;
     margin: 0 auto 25px;
@@ -231,7 +236,7 @@ font-size: 14px;
 
 footer {
         height: 50px;
-    background: none repeat scroll 0 0 #E8E6E0;
+    background: none repeat scroll 0 0 #0f515f;
     margin-bottom: 1px;
     margin-top: 5px;
     clear: both;
@@ -270,3 +275,36 @@ footer {
      
 }
     
+
+.myButton {
+    -moz-box-shadow: 0px 10px 14px -7px #d4b745;
+    -webkit-box-shadow: 0px 10px 14px -7px #d4b745;
+    box-shadow: 0px 10px 14px -7px #d4b745;
+    -webkit-border-radius:8px;
+    border-radius:8px;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    background-color:#0f515f;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;
+    border-radius:8px;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:13px 32px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #d4b745;
+}
+.myButton:hover {
+    background-color:#0f5150;
+}
+.myButton:active {
+    position:relative;
+    top:1px;
+}

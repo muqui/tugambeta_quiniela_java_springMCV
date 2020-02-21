@@ -28,8 +28,8 @@
     <tiles:putAttribute name="body">
         <link href='http://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
 
-        <div class="container">
-            <div class="card card-container">
+        <div class="container inicio">
+            <div class="card card-container ">
                 <script src="resources/js/registro.js"></script>   
                 <p id="profile-name" class="profile-name-card">Registro</p>
                 <c:url var="saveuser" value="/saveuser" />
