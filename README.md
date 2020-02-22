@@ -20,8 +20,11 @@ Database
 <p>Create a new account, this time it  will be ROLE_ADMIN_GRUPO, then create a group, if you create a custom I will be managed by you</p>
 
 ![image 3](https://github.com/muqui/tugambeta_quiniela_java_springMCV/blob/master/screenshots/image_3.jpg  "group")
+
+<p>if the group was created different from custom, You request your admin set football pools of week  otherwise you must create a  football pools and set  football pools of week, then give  group name, and password  to your friends</p>
+
 <H2>
-Login
+How to play
 </H2>
 
 ![alt text](https://github.com/muqui/tugambeta_quiniela_java_springMCV/blob/master/screenshots/login.png)
