@@ -181,7 +181,9 @@ src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
                 });
             </script>
 
-
-        <p align="center">Editar quiniela - ${subpagina}</p>
+<!--
+  <p align="center">Editar quiniela - ${subpagina}</p>
+-->
+      
     </tiles:putAttribute>
 </tiles:insertDefinition>

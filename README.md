@@ -16,6 +16,10 @@ Database
 <p>After created your account, you have to create a football pools</p>
 
 ![image 2](https://github.com/muqui/tugambeta_quiniela_java_springMCV/blob/master/screenshots/image_2.jpg  "Create")
+
+<p>Create a new account, this time it  will be ROLE_ADMIN_GRUPO, then create a group, if you create a custom I will be managed by you</p>
+
+![image 3](https://github.com/muqui/tugambeta_quiniela_java_springMCV/blob/master/screenshots/image_3.jpg  "group")
 <H2>
 Login
 </H2>
