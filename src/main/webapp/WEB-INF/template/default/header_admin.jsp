@@ -33,8 +33,15 @@
                <li  class="nav-item active "><a  class="nav-link fuente-verde"href="/resultadosestadistica">Resultados</a></li>
             <li  class="nav-item active "><a class="nav-link fuente-verde" href="/admin">home </a></li>
             <li  class="nav-item active "><a class="nav-link fuente-verde"  <c:if test="${pageContext.request.userPrincipal.name != null}">href="javascript:formSubmit()"></c:if>Salir </a></li>
-            </ul>
+              <li  class="nav-item active nav-link fuente-verde">Bienvenido  : ${pageContext.request.userPrincipal.name}</li>   
+        </ul>
+            
+
              </div>
+    <P>
+     
+
+</p>
         </nav>  
 
   
@@ -50,10 +57,6 @@
             }
 </script>
 
-<P>
-    Bienvenido  : ${pageContext.request.userPrincipal.name} 
-
-</p>
 
 <div id="patrocinador">
 

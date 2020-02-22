@@ -80,3 +80,7 @@ table td[class*="span"], table th[class*="span"], .row-fluid table td[class*="sp
 .show { display: block; }
 .invisible { visibility: hidden; }
 .affix { position: fixed; }
+
+th{
+    color: white;
+}

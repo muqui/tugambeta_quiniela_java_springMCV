@@ -12,6 +12,10 @@ body{
   background-size: cover; /* Resize the background image to cover the entire container */
     }
   
+    h2{
+        color: white;
+    }    
+    
 @media (max-width: 62em) {
     
   .navbar-nav {
@@ -110,7 +114,13 @@ input[type="radio"]:checked + label span ,  input[type="checkbox"]:checked + lab
     user-select: none;
     cursor: default;
 }
+a:hover {
+  color: yellow;
+}
 
+label{
+    color: white;
+}
 /*
  * Card component
  */

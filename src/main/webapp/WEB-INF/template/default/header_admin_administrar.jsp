@@ -43,7 +43,7 @@
 </script>
 
 <P>
-    Bienvenido  : ${pageContext.request.userPrincipal.name} 
+    Bienvenido c : ${pageContext.request.userPrincipal.name} 
 
 </p>
 

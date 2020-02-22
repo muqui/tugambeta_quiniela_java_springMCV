@@ -1,13 +1,4 @@
-<%-- 
-    Document   : admin
-    Created on : 12/04/2017, 01:22:22 PM
-    Author     : mq12
---%>
-<%-- 
-    Document   : editarquiniela
-    Created on : 13/04/2017, 07:28:03 PM
-    Author     : mq12
---%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -23,7 +14,6 @@
 <script
 src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-<link href="<c:url value="/resources/css/estilo.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/normalize.css" />" rel="stylesheet">
 <script src="/resources/js/validar.js" type="text/javascript"></script>
 <script src="/resources/js/dynamic_list_helper.js" type="text/javascript"></script> <%-- Para crear Quiniela --%>
@@ -33,48 +23,49 @@ src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <tiles:insertDefinition name="templateadmin">
     <tiles:putAttribute name="body">
  
-        <a  <c:if test="${pageContext.request.userPrincipal.name != null}">href="javascript:formSubmit()"></c:if>Salir </a>
-        <c:url value="/logout" var="logoutUrl" />
-        <form action="${logoutUrl}" method="post" id="logoutForm">
-            <input type="hidden" name="${_csrf.parameterName}"
-                   value="${_csrf.token}" />
-        </form>
+
         <script>
             function formSubmit() {
                 document.getElementById("logoutForm").submit();
             }
         </script>
        
+        <div class="container">
+            <div class="card  ">
+                 <h2>Crear Quiniela!</h2>
+                  <c:url var="crearQ" value="${cp}/admin/editpersonlistcontainer" />
+            <form:form action="${crearQ}" modelAttribute="partidoLista" method="post" id="personListForm" class="form-signin" >
 
-        <h1>Crear Quiniela!</h1>
+                
+                    <div class="form-group">
+                        <label for="nombre" >Nombre:</label> 
+                   <form:input path="nombre"  id="nombre"  class="form-control"  />
+                    <form:errors path="nombre" class="form-control"  /> </div> 
 
-        <div id = "formcrear" >
-            <c:url var="crearQ" value="${cp}/admin/editpersonlistcontainer" />
-            <form:form action="${crearQ}" modelAttribute="partidoLista" method="post" id="personListForm">
-
-                <div id="campos1">
-                    <div> <label for="nombre" >Nombre:</label> </div>
-                    <div> <form:input path="nombre"  id="nombre"   /></div>
-                    <div> <form:errors path="nombre" /> </div> 
-
-                </div>
-                <div id="campos1">
-                    <div> <label for="fechaTemporal" >fecha limite:</label></div>
-                    <div> <form:input path="fechaTemporal" type="datetime-local"  id="fechaTemporal"   /></div>
-                    <div> <form:errors path="fechaTemporal" /></div>
-
-                </div>
-
-
-                <div id="campos1" >
-                    <select name="paginaTipo">
+                    <div class="form-group">
+                        <label for="fechaTemporal" >fecha limite:</label>
+                        <form:input path="fechaTemporal" type="datetime-local"  id="fechaTemporal" class="form-control"   />
+                        <form:errors path="fechaTemporal" class="form-control" />
+                    </div>
+                
+                  
+                      <div class="form-group">
+                        <label for="paginaTipo" >Nombre Liga</label>
+                        
+                    <select name="paginaTipo" class="form-control" >
                         <option value="q_ligamx" selected >Liga mx</option> 
 
                     </select> 
-                </div>
+                    </div>
+                
+
+               
+
+
+              
 
                 <input id="id" name="pagina.nombre" type="hidden" value="${user}"/>
-                <table id="crearquiniela">
+                <table id="crearquiniela" class="table">
                     <thead>
                         <tr>
                             <th>Local</th>
@@ -85,13 +76,13 @@ src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
                     <tbody id="personListContainer">
                         <c:forEach items="${partidoLista.partidoses}" var="partidoLista" varStatus="i" begin="0" >
                             <tr  class="person">    
-                                <td><form:input path="partidoses[${i.index}].local" id="local${i.index}"  placeholder="Local" /></td>
-                                <td><form:input path="partidoses[${i.index}].visitante" id="visitante${i.index}"   placeholder="Visita"/></td>
+                                <td><form:input path="partidoses[${i.index}].local" id="local${i.index}"  placeholder="Local"   class="form-control" /></td>
+                                <td><form:input path="partidoses[${i.index}].visitante" id="visitante${i.index}"   placeholder="Visita"  class="form-control"/></td>
                                 <%--
                                 <td><input type="text" name="personList[].name" value="${Person.name}" /></td>
                                 <td><input type="text" name="personList[].age" value="${Person.age}" /></td>
                                 --%>
-                                <td><a href="#" class="removePerson">Quitar partido</a></td>
+                                <td><a href="#" class="removePerson btn btn-lg btn-primary btn-block btn-signin">Quitar partido</a></td>
                             </tr>
                         </c:forEach>
                         <%-- 
@@ -114,15 +105,18 @@ src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
                                 <td><input type="text" name="partidoses[].local" value="" /></td>
                                 <td><input type="text" name="partidoses[].visitante" value="" /></td>
 
-                                <td><a href="#" class="removePerson">Remove Person</a></td>
+                                <td><a href="#" class="removePerson  ">Remove Person</a></td>
                             </tr>
                         </c:if>
                     </tbody>
                 </table>
-                <div id="botones">
-                    <div>   <a href="#" id="addPerson">agregar partido</a>&nbsp;&nbsp;</div>
-                    <div>   <a href="?f=">Limpiar lista</a></div>
-                    <div> <input type="submit" value="Crear Quiniela" id="submit"  class="myButton" />&nbsp;&nbsp;</div>
+                <div  class="row">
+                 
+                    <div  class="col">   <a href="#" id="addPerson"  class="btn btn-lg btn-primary btn-block btn-signin"  >agregar partido</a>&nbsp;&nbsp;</div>
+                    <div  class="col">   <a href="?f="  class="btn btn-lg btn-primary btn-block btn-signin" >Limpiar lista</a>&nbsp;&nbsp;</div>               
+                   
+                        <div  class="col"> <input type="submit" value="Crear Quiniela" id="submit"  class="btn btn-lg btn-primary btn-block btn-signin" />&nbsp;&nbsp;</div>
+               
                 </div>
 
 
@@ -133,6 +127,15 @@ src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
             </form:form>  
 
+                
+            </div>
+            
+        </div>
+
+       
+
+   
+           
            
             <script type="text/javascript">
                 function rowAdded(rowElement) {
