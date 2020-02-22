@@ -14,6 +14,7 @@ Database
 
 ![image 1](https://github.com/muqui/tugambeta_quiniela_java_springMCV/blob/master/screenshots/image_1.jpg  "Login")
 <p>After created your account, you have to create a football pools</p>
+
 ![image 2](https://github.com/muqui/tugambeta_quiniela_java_springMCV/blob/master/screenshots/image_2.jpg  "Create")
 <H2>
 Login
