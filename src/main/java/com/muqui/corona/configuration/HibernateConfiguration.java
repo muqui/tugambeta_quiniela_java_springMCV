@@ -19,8 +19,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @ComponentScan({ "com.muqui" })
-//@PropertySource(value = { "classpath:application.properties" })
-@PropertySource(value = { "classpath:application_1.properties" })
+@PropertySource(value = { "classpath:applicationheroku.properties" })
+//@PropertySource(value = { "classpath:application_1.properties" })
 public class HibernateConfiguration {
 
     @Autowired
@@ -48,7 +48,7 @@ public class HibernateConfiguration {
     private Properties hibernateProperties() {
         Properties properties = new Properties();
         //Genera las tablas automaticamente de la base de datos
-         properties.put("hibernate.hbm2ddl.auto", environment.getRequiredProperty("hibernate.hbm2ddl.auto")); //descomentar para crear la base de datos
+      //   properties.put("hibernate.hbm2ddl.auto", environment.getRequiredProperty("hibernate.hbm2ddl.auto")); //descomentar para crear la base de datos en MYSQL
         properties.put("hibernate.dialect", environment.getRequiredProperty("hibernate.dialect"));
         properties.put("hibernate.show_sql", environment.getRequiredProperty("hibernate.show_sql"));
         properties.put("hibernate.format_sql", environment.getRequiredProperty("hibernate.format_sql"));
